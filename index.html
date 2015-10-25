@@ -62,6 +62,12 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
       var NPg2 = 1;
       var flgTp2 = false;
 
+      var nSec = 0;
+      var nObs = 0;
+      var nInd = 0;
+      var nOpc = 0;
+      var nIt  = 0;
+
       var vSec = [];
       var vObs = [];
       var vOpc = [[0,], [1,], [2,], [3,], [4,], [5,], [6,], [7,], [8,], [9,], [10,], [11,], [12,], [13,], [14,], [15,], [16,]];
@@ -69,197 +75,231 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
       var vInd = [[]];
       var TpPerg = [];
 
-      vSec[1]    = "Se&ccedil;&atilde;o 1 - As rela&ccedil;&otilde;es com o ensino e com a aprendizagem";
-      vObs[1]    = "Marque o quanto VOC&Ecirc; concorda com cada uma das afirma&ccedil;&otilde;es abaixo:"
+      var PergAtual = 0;
+
       vOpc[1][0] = "N&atilde;o Concordo";
       vOpc[1][1] = "Concordo Pouco";
       vOpc[1][2] = "Concordo";
       vOpc[1][3] = "Concordo Muito";
-
-      vInd[1]  = [1, 1, 1]; vPrg[1] = "1. O que aprendo na escola &eacute; &uacute;til para a minha vida.";
-      vInd[2]  = [1, 1, 1]; vPrg[2] = "2. A maioria dos estudantes da minha escola ser&aacute; capaz de ter &ecirc;xito realizando faculdades.";
-      vInd[3]  = [1, 1, 1]; vPrg[3] = "3. Na minha escola os professores consideram o comportamento dos alunos para dar as notas.";
-      vInd[4]  = [1, 1, 1]; vPrg[4] = "4. A quantidade de li&ccedil;&atilde;o de casa &eacute; bem distribu&iacute;da entre as mat&eacute;rias.";
-      vInd[5]  = [1, 1, 1]; vPrg[5] = "5. Os professores desta escola chegam atrasados com frequ&ecirc;ncia.";
-      vInd[6]  = [1, 1, 1]; vPrg[6] = "6. Os professores desta escola costumam faltar.";
-      vInd[7]  = [1, 1, 1]; vPrg[7] = "7. Considero justo o jeito que os professores d&atilde;o as notas.";
-
-      vObs[2]    = "Com que frequ&ecirc;ncia as situa&ccedil;&otilde;es abaixo acontecem com OS ESTUDANTES DE SUA CLASSE:"
       vOpc[2][0] = "Nunca";
       vOpc[2][1] = "Algumas vezes";
       vOpc[2][2] = "Muitas vezes";
       vOpc[2][3] = "Sempre";
-
-      vInd[8]   = [1, 2, 2]; vPrg[8]  = "8. Parecem desinteressados e entediados.";
-      vInd[9]   = [1, 2, 2]; vPrg[9]  = "9. Chegam atrasados.";
-      vInd[10]  = [1, 2, 2]; vPrg[10] = "10. Atrapalham a aula.";
-      vInd[11]  = [1, 2, 2]; vPrg[11] = "11. Fazem as li&ccedil;&otilde;es de casa.";
-      vInd[12]  = [1, 2, 2]; vPrg[12] = "12. Quando n&atilde;o entendem alguma coisa, podem perguntar para os professores v&aacute;rias vezes at&eacute; entenderem.";
-
-      vInd[13]  = [1, 1, 1]; vPrg[13] = "";
-
-      vObs[3]    = "Marque a ocorr&ecirc;ncia das seguintes situa&ccedil;&otilde;es. Os PROFESSORES de sua turma:"
-      vInd[13]  = [1, 3, 2]; vPrg[13] = "13. Explicam de forma clara.";
-      vInd[14]  = [1, 3, 2]; vPrg[14] = "14. Conseguem manter a ordem durante a aula.";
-      vInd[15]  = [1, 3, 2]; vPrg[15] = "15. Prop&otilde;em atividades em grupos que promovem a troca de ideias e a coopera&ccedil;&atilde;o.";
-      vInd[16]  = [1, 3, 2]; vPrg[16] = "16. Incentivam a colabora&ccedil;&atilde;o dos alunos no planejamento das atividades.";
-      vInd[17]  = [1, 3, 2]; vPrg[17] = "17. Apoiam e incentivam os alunos.";
-      vInd[18]  = [1, 3, 2]; vPrg[18] = "18. Parecem estar desmotivados e sem vontade de dar aulas.";
-      vInd[19]  = [1, 3, 2]; vPrg[19] = "19. Incentivam os alunos a usarem computadores ou outros aparelhos conectados &agrave; internet durante as aulas.";
-      vInd[20]  = [1, 3, 2]; vPrg[20] = "20. Incentivam os alunos a usarem a biblioteca.";
-
-      vSec[2] = "Se&ccedil;&atilde;o 2 - As rela&ccedil;&otilde;es sociais e os conflitos na escola";
-
-      vObs[4]    = "O quanto VOC&Ecirc; est&aacute; satisfeito com a rela&ccedil;&atilde;o que tem com:";
       vOpc[3][0] = "Nada satisfeito";
       vOpc[3][1] = "Pouco satisfeito";
       vOpc[3][2] = "Satisfeito";
       vOpc[3][3] = "Muito satisfeito";
 
-      vInd[21]  = [2, 4, 3]; vPrg[21] = "21. Os gestores (diretor, vice diretor…).";
-      vInd[22]  = [2, 4, 3]; vPrg[22] = "22. O coordenador/orientador.";
-      vInd[23]  = [2, 4, 3]; vPrg[23] = "23. Os funcion&aacute;rios.";
+      vSec[nSec++]    = "Se&ccedil;&atilde;o 1 – As rela&ccedil;&otilde;es com o ensino e com a aprendizagem";
 
-      vObs[5]    = "O quanto VOC&Ecirc; concorda com cada uma das afirma&ccedil;&otilde;es abaixo sobre a sua escola:";
+      vObs[nObs++]    = "Marque o quanto VOC&Ecirc; concorda com cada uma das afirma&ccedil;&otilde;es abaixo:";
 
-      vInd[24]  = [2, 5, 1]; vPrg[24] = "24. H&aacute; muitas situa&ccedil;&otilde;es de conflitos entre os alunos e os professores.";
-      vInd[25]  = [2, 5, 1]; vPrg[25] = "25. Estou satisfeito com a rela&ccedil;&atilde;o que tenho com meus colegas.";
-      vInd[26]  = [2, 5, 1]; vPrg[26] = "26. Sinto-me s&oacute;.";
-      vInd[27]  = [2, 5, 1]; vPrg[27] = "27. Os estudantes se ajudam mesmo que n&atilde;o sejam amigos.";
-      vInd[28]  = [2, 5, 1]; vPrg[28] = "28. H&aacute; muitas situa&ccedil;&otilde;es de conflitos entre os alunos.";
-      vInd[29]  = [2, 5, 1]; vPrg[29] = "29. Os estudantes com defici&ecirc;ncia t&ecirc;m o apoio que precisam por parte dos alunos.";
-      vInd[30]  = [2, 5, 1]; vPrg[30] = "30. As pessoas demonstram boa vontade para resolver os problemas nesta escola.";
-      vInd[31]  = [2, 5, 1]; vPrg[31] = "31. Se eu pudesse, eu mudaria de escola.";
+      nOpc = 1;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "1. O que eu ensino aos meus alunos &eacute; importante para a vida deles.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "2. A maioria dos estudantes da minha escola ser&aacute; capaz de ter &ecirc;xito no ensino superior.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "3. A maioria dos alunos da minha escola &eacute; capaz de ter &oacute;timo desempenho em avalia&ccedil;&otilde;es externas.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "4. Os procedimentos de recupera&ccedil;&atilde;o desta escola visam &agrave; supera&ccedil;&atilde;o das dificuldades de aprendizagem e n&atilde;o apenas ao alcance das m&eacute;dias (notas).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "5. A equipe escolar se preocupa em diminuir as diferen&ccedil;as de aprendizagem entre os alunos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "6. A maioria dos alunos valoriza esta escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "7. A quantidade de li&ccedil;&atilde;o de casa &eacute; bem distribu&iacute;da entre as mat&eacute;rias.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "8. O n&iacute;vel de exig&ecirc;ncia da escola no que se refere ao aprendizado do aluno &eacute; alto.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "9. Nessa escola h&aacute; muita rotatividade de professores.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "10. Na minha escola os professores consideram o comportamento dos alunos para dar as notas.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "11. Os professores desta escola costumam faltar.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "12. Os professores desta escola chegam atrasados com frequ&ecirc;ncia.";
 
-      vObs[6]    = "Indique a frequ&ecirc;ncia em que as situa&ccedil;&otilde;es abaixo ocorrem em sua escola:";
+      vObs[nObs++]    = "Marque a ocorr&ecirc;ncia das seguintes situa&ccedil;&otilde;es:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "13. Eu incentivo que, durante as aulas, os meus alunos usem de maneira aut&ocirc;noma materiais diversos (livros, filmes, revistas, etc.).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "14. Eu me sinto satisfeito com os objetivos pedag&oacute;gicos que tenho alcan&ccedil;ado.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "15. Eu proponho atividades em grupos que promovem troca de ideias e a coopera&ccedil;&atilde;o.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "16. Procuro direcionar meus esfor&ccedil;os para todos os alunos, mesmo &agrave;queles que n&atilde;o demonstram interesse em aprender.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "17. Preparo atividades diversificadas para os mais diferentes ritmos de aprendizagem.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "18. Eu consigo manter, de forma respeitosa, a ordem durante a aula.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "19. Incentivo a colabora&ccedil;&atilde;o de meus alunos no planejamento das atividades de classe.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "20. Eu participo de cursos de aperfei&ccedil;oamento fora da escola que repercutem na minha pr&aacute;tica pedag&oacute;gica.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "21. Ajusto a programa&ccedil;&atilde;o de um tema a partir dos conhecimentos pr&eacute;vios dos alunos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "22. Ao concluir um tema, conte&uacute;do ou unidade, fa&ccedil;o uma revis&atilde;o para futuras modifica&ccedil;&otilde;es das minhas pr&aacute;ticas.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "23. Quando identifico alunos com dificuldades de aprendizagem, re&uacute;no-me com os demais professores da classe ou com o orientador/coordenador, para tra&ccedil;ar um plano eficaz para esses alunos.";
 
-      vInd[32]  = [2, 6, 2]; vPrg[32] = "32. Os alunos desrespeitam os professores.";
-      vInd[33]  = [2, 6, 2]; vPrg[33] = "33. Os funcion&aacute;rios tratam todos os alunos com respeito.";
-      vInd[34]  = [2, 6, 2]; vPrg[34] = "34. Os alunos ofendem ou amea&ccedil;am alguns professores.";
-      vInd[35]  = [2, 6, 2]; vPrg[35] = "35. Os alunos sentem que podem expressar suas opini&otilde;es e que elas s&atilde;o consideradas.";
-      vInd[36]  = [2, 6, 2]; vPrg[36] = "36. Os estudantes com defici&ecirc;ncia t&ecirc;m o apoio que precisam dos professores para se sentirem bem integrados ao grupo.";
-      vInd[37]  = [2, 6, 2]; vPrg[37] = "37. A equipe gestora (orientador, coordenador, vice-diretor, diretor) demonstra preocupa&ccedil;&atilde;o com a vida dos alunos fora da escola.";
-      vInd[38]  = [2, 6, 2]; vPrg[38] = "38. Tenho medo de alguns professores.";
+      vObs[nObs++]    = "O quanto essas situa&ccedil;&otilde;es acontecem com SEUS ALUNOS:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "24. Parecem desinteressados e entediados.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "25. Chegam atrasados com frequ&ecirc;ncia.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "26. Atrapalham a minha aula.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "27. Fazem as li&ccedil;&otilde;es de casa.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "28. Entendem os objetivos, o processo, os crit&eacute;rios e os resultados das avalia&ccedil;&otilde;es.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "29. Expressam livremente suas opini&otilde;es mesmo que muito diferentes das ideias dos demais durante as aulas.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "30. Quando n&atilde;o entendem alguma coisa eles podem perguntar v&aacute;rias vezes at&eacute; compreenderem.";
 
-      vObs[7]    = "Marque a ocorr&ecirc;ncia das seguintes situa&ccedil;&otilde;es. Os PROFESSORES de sua classe:";
+      vSec[nSec++]    = "Se&ccedil;&atilde;o 2 – As rela&ccedil;&otilde;es sociais e os conflitos na escola";
 
-      vInd[39]  = [2, 7, 2]; vPrg[39] = "39. Demonstram interesse pela nossa vida fora da escola.";
-      vInd[40]  = [2, 7, 2]; vPrg[40] = "40. Escutam o que temos a dizer.";
-      vInd[41]  = [2, 7, 2]; vPrg[41] = "41. Implicam com alguns alunos.";
-      vInd[42]  = [2, 7, 2]; vPrg[42] = "42. Gritam.";
-      vInd[43]  = [2, 7, 2]; vPrg[43] = "43. Amea&ccedil;am alguns estudantes.";
-      vInd[44]  = [2, 7, 2]; vPrg[44] = "44. Tiram sarro ou humilham alguns estudantes.";
+      vObs[nObs++]    = "Assinale o quanto VOC&Ecirc; est&aacute; satisfeito com a RELA&Ccedil;&Atilde;O QUE TEM com:";
+      nOpc = 3;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "31. A equipe gestora (diretor, vice-diretor).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "32. O coordenador/orientador.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "33. Os professores.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "34. Os alunos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "35. Os funcion&aacute;rios.";
 
-      vSec[3] = "Se&ccedil;&atilde;o 3 - As regras, as san&ccedil;&otilde;es e a seguran&ccedil;a na escola";
+      vObs[nObs++]    = "Indique o quanto essas situa&ccedil;&otilde;es ocorrem na escola:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "36. As pessoas que convivem na minha escola (alunos, pais, funcion&aacute;rios, professores e equipe gestora) se relacionam bem num ambiente amistoso e de confian&ccedil;a.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "37. Quando eu tenho um conflito com um colega da escola busco algu&eacute;m que possa me ajudar a resolv&ecirc;-lo.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "38. Acredito que n&atilde;o vale a pena colocar minhas ideias e propostas, pois n&atilde;o ser&atilde;o consideradas nesta escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "39. Quando eu tenho um conflito com um aluno, n&atilde;o acho necess&aacute;rio justificar minha posi&ccedil;&atilde;o para ele.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "40. Os alunos desrespeitam os professores.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "41. Os professores desrespeitam os alunos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "42. Os estudantes com defici&ecirc;ncia t&ecirc;m o apoio dos professores para se sentirem bem integrados ao grupo.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "43. Os alunos ofendem ou amea&ccedil;am alguns professores.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "44. Os alunos usam a internet ou celular para insultar, ridicularizar, ofender ou amea&ccedil;ar outras pessoas.";
 
-      vObs[8]    = "Marque com que frequ&ecirc;ncia as situa&ccedil;&otilde;es abaixo ocorrem em sua escola:";
+      vObs[nObs++]    = "Pensando na RELA&Ccedil;&Atilde;O COM OS ALUNOS, marque a ocorr&ecirc;ncia das seguintes situa&ccedil;&otilde;es. Na sua escola, OS PROFESSORES:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "45. Gritam com alguns alunos ou com a classe.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "46. Ignoram alguns alunos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "47. Amea&ccedil;am alguns alunos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "48. Tiram sarro ou humilham alguns alunos.";
 
-      vInd[45]  = [3, 8, 2]; vPrg[45] = "45. Os estudantes participam da elabora&ccedil;&atilde;o e das mudan&ccedil;as de regras da escola.";
-      vInd[46]  = [3, 8, 2]; vPrg[46] = "46. Em geral, os adultos (professores, funcion&aacute;rios e dire&ccedil;&atilde;o) cumprem as regras da escola.";
-      vInd[47]  = [3, 8, 2]; vPrg[47] = "47. Em geral, os estudantes cumprem as regras da escola.";
-      vInd[48]  = [3, 8, 2]; vPrg[48] = "48. Os alunos conhecem e compreendem as regras.";
-      vInd[49]  = [3, 8, 2]; vPrg[49] = "49. As regras s&atilde;o justas e valem para todos (alunos, professores, funcion&aacute;rios, diretor).";
-      vInd[50]  = [3, 8, 2]; vPrg[50] = "50. H&aacute; momentos e espa&ccedil;os destinados a discutir os problemas de conviv&ecirc;ncia, de disciplina e as regras na escola.";
-      vInd[51]  = [3, 8, 2]; vPrg[51] = "51. Alguns alunos v&ecirc;m para a escola embriagados ou drogados.";
-      vInd[52]  = [3, 8, 2]; vPrg[52] = "52. Alguns alunos traficam drogas dentro da escola.";
-      vInd[53]  = [3, 8, 2]; vPrg[53] = "53. Alguns alunos trazem armas, facas, canivetes, etc.";
-      vInd[54]  = [3, 8, 2]; vPrg[54] = "54. Os professores favorecem a alguns alunos mais que a outros.";
-      vInd[55]  = [3, 8, 2]; vPrg[55] = "55. Na maior parte das vezes, a escola castiga ou d&aacute; bronca no grupo todo e n&atilde;o apenas nos envolvidos.";
-      vInd[56]  = [3, 8, 2]; vPrg[56] = "56. As puni&ccedil;&otilde;es s&atilde;o impostas sem o aluno ser ouvido.";
-      vInd[57]  = [3, 8, 2]; vPrg[57] = "57. A escola faz diferen&ccedil;a ao dar um castigo para uns e n&atilde;o para outros que descumpriram uma mesma regra.";
-      vInd[58]  = [3, 8, 2]; vPrg[58] = "58. Quando ocorrem situa&ccedil;&otilde;es de conflitos podemos contar com os adultos para ajudar a resolv&ecirc;-los.";
-      vInd[59]  = [3, 8, 2]; vPrg[59] = "59. Os conflitos s&atilde;o resolvidos de forma justa para os envolvidos.";
+      vObs[nObs++]    = "Pensando em sua escola, o quanto VOC&Ecirc; concorda com cada uma das seguintes afirma&ccedil;&otilde;es:";
+      nOpc = 1;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "49. H&aacute; muitas situa&ccedil;&otilde;es de conflitos entre os alunos e os professores.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "50. H&aacute; muitas situa&ccedil;&otilde;es de conflitos entre os alunos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "51. Eu me sinto acolhido e gosto de estar na escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "52. Eu sinto que posso contar com a ajuda de outros professores quando preciso.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "53. As pessoas demonstram boa vontade para resolver os problemas nesta escola.";
 
-      vObs[9]    = "Com que frequ&ecirc;ncia OS PROFESSORES tomam as atitudes abaixo quando os alunos se envolvem em conflitos ou desobedecem &agrave;s regras:";
+      vSec[nSec++]    = "Se&ccedil;&atilde;o 3 - As regras, as san&ccedil;&otilde;es e a seguran&ccedil;a na escola";
 
-      vInd[60]  = [3, 9, 2]; vPrg[60] = "60. Fingem que n&atilde;o perceberam.";
-      vInd[61]  = [3, 9, 2]; vPrg[61] = "61. Informam a fam&iacute;lia sobre o ocorrido para que tome provid&ecirc;ncias.";
-      vInd[62]  = [3, 9, 2]; vPrg[62] = "62. Os alunos envolvidos s&atilde;o ouvidos e incentivados a buscar solu&ccedil;&otilde;es para o problema.";
-      vInd[63]  = [3, 9, 2]; vPrg[63] = "63. Colocam os alunos para fora da sala de aula.";
-      vInd[64]  = [3, 9, 2]; vPrg[64] = "64. Mudam os alunos de lugar na sala de aula.";
-      vInd[65]  = [3, 9, 2]; vPrg[65] = "65. Retiram um objeto (celular, fone de ouvido…) que pertence ao aluno.";
-      vInd[66]  = [3, 9, 2]; vPrg[66] = "66. N&atilde;o sabem o que fazer.";
-      vInd[67]  = [3, 9, 2]; vPrg[67] = "67. Encaminham para a dire&ccedil;&atilde;o/ coordena&ccedil;&atilde;o/orienta&ccedil;&atilde;o.";
+      vObs[nObs++]    = "Marque com que frequ&ecirc;ncia essas situa&ccedil;&otilde;es acontecem em sua escola:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "54. S&atilde;o realizadas assembleias ou encontros com os alunos para discutir as regras, a disciplina e os problemas de conviv&ecirc;ncia da escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "55. Os estudantes participam da elabora&ccedil;&atilde;o e mudan&ccedil;a de regras da escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "56. Em geral, os adultos (professores, funcion&aacute;rios e gestores) cumprem as regras da escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "57. Em geral, os estudantes cumprem as regras da escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "58. As regras s&atilde;o justas e valem para todos (alunos, professores, funcion&aacute;rios, dire&ccedil;&atilde;o/coordena&ccedil;&atilde;o/orienta&ccedil;&atilde;o).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "59. As regras s&atilde;o criadas principalmente pela equipe pedag&oacute;gica e gestora da escola (Dire&ccedil;&atilde;o, Coordena&ccedil;&atilde;o, Mantenedora).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "60. Os conflitos s&atilde;o resolvidos de forma justa para os envolvidos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "61. Alguns alunos trazem armas, facas, canivetes, etc para a escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "62. Os alunos estragam ou roubam objetos dos outros.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "63. Alguns alunos v&ecirc;m embriagados ou drogados para a escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "64. Alguns alunos traficam drogas na escola.";
 
-      vObs[10]   = "Com que frequ&ecirc;ncia a ESCOLA toma as atitudes abaixo quando os alunos se agridem, se envolvem em conflitos ou desobedecem &agrave;s regras:";
+      vObs[nObs++]    = "Pensando em sua escola, o quanto VOC&Ecirc; concorda com cada uma das seguintes afirma&ccedil;&otilde;es:";
+      nOpc = 1;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "65. H&aacute; diferen&ccedil;as acentuadas entre regras que existem em minhas aulas e as regras dos outros professores.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "66. H&aacute; diferen&ccedil;as acentuadas entre as san&ccedil;&otilde;es que eu utilizo em minhas aulas e as empregadas pelos outros professores.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "67. H&aacute; diferen&ccedil;as acentuadas entre o que os professores consideram um comportamento inadequado por parte dos alunos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "68. Quando ocorrem situa&ccedil;&otilde;es de conflitos, os envolvidos podem contar com a equipe gestora (diretor/vice/coordenador/orientador) para ajudar a resolver os conflitos.";
 
-      vInd[68]  = [3, 10, 2]; vPrg[68] = "68. Os alunos envolvidos recebem advert&ecirc;ncia oralmente ou por escrito.";
-      vInd[69]  = [3, 10, 2]; vPrg[69] = "69. Os alunos s&atilde;o humilhados na frente dos colegas.";
-      vInd[70]  = [3, 10, 2]; vPrg[70] = "70. Os alunos envolvidos s&atilde;o suspensos.";
-      vInd[71]  = [3, 10, 2]; vPrg[71] = "71. Os alunos envolvidos s&atilde;o ouvidos e convidados a reparar seus erros.";
-      vInd[72]  = [3, 10, 2]; vPrg[72] = "72. A escola informa o ocorrido &agrave; fam&iacute;lia (na entrada ou sa&iacute;da, por telefone, por meio de bilhetes ou notifica&ccedil;&otilde;es eletr&ocirc;nicas) pedindo que tome provid&ecirc;ncias.";
-      vInd[73]  = [3, 10, 2]; vPrg[73] = "73. Os alunos s&atilde;o transferidos de escola.";
-      vInd[74]  = [3, 10, 2]; vPrg[74] = "74. Os alunos s&atilde;o encaminhados para o Conselho Tutelar.";
-      vInd[75]  = [3, 10, 2]; vPrg[75] = "75. A escola registra um boletim de ocorr&ecirc;ncia na pol&iacute;cia.";
-      vInd[76]  = [3, 10, 2]; vPrg[76] = "76. A escola impede que alunos participem de atividades que gostam (recreio, Educa&ccedil;&atilde;o F&iacute;sica, festa, excurs&atilde;o, etc.).";
+      vObs[nObs++]    = "Com que frequ&ecirc;ncia VOC&Ecirc; toma as atitudes abaixo quando os alunos se envolvem em conflitos ou desobedecem &agrave;s regras:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "69. Ignoro e dou continuidade ao que estava sendo trabalhado em aula.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "70. N&atilde;o sei ao certo o que fazer.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "71. Encaminho para a dire&ccedil;&atilde;o/ coordena&ccedil;&atilde;o/orienta&ccedil;&atilde;o.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "72. Informo a fam&iacute;lia sobre o ocorrido para que tome provid&ecirc;ncias.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "73. Retiro um objeto (celular, fone de ouvido…) que pertence ao aluno.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "74. Mudo os alunos de lugar na sala de aula.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "75. Os alunos envolvidos s&atilde;o ouvidos e incentivados a buscar solu&ccedil;&otilde;es para o problema.";
 
+      vObs[nObs++]    = "Com que frequ&ecirc;ncia a ESCOLA toma as atitudes abaixo quando os alunos se agridem, se envolvem em conflitos ou desobedecem &agrave;s regras:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "76. Os alunos envolvidos recebem advert&ecirc;ncia oralmente ou por escrito.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "77. Os alunos s&atilde;o humilhados na frente dos colegas.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "78. Os alunos s&atilde;o impedidos de participar de alguma atividade que gostam (recreio, Educa&ccedil;&atilde;o F&iacute;sica, festa, excurs&atilde;o, etc.).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "79. Os alunos envolvidos s&atilde;o suspensos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "80. Os alunos envolvidos s&atilde;o ouvidos e convidados a reparar seus erros.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "81. A escola informa os respons&aacute;veis sobre o ocorrido pedindo que tomem provid&ecirc;ncia.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "82. Os alunos s&atilde;o encaminhados para o conselho tutelar.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "83. A escola registra um boletim de ocorr&ecirc;ncia na pol&iacute;cia.";
 
-      vSec[4] = "Se&ccedil;&atilde;o 4 - As situa&ccedil;&otilde;es de intimida&ccedil;&atilde;o entre alunos";
+      vSec[nSec++]    = "Se&ccedil;&atilde;o 4 - As situa&ccedil;&otilde;es de intimida&ccedil;&atilde;o entre alunos";
 
-      vObs[11]   = "Assinale com que frequ&ecirc;ncia as situa&ccedil;&otilde;es abaixo ocorreram com voc&ecirc; nos &Uacute;LTIMOS 3 MESES:";
+      vObs[nObs++]    = "Pensando nas RELA&Ccedil;&Otilde;ES ENVOLVENDO OS ALUNOS da sua escola, com que frequ&ecirc;ncia acontecem as seguintes afirma&ccedil;&otilde;es:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "84. Os alunos agridem, maltratam, intimidam, amea&ccedil;am, excluem ou humilham algum colega na escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "85. Os alunos provocam, zoam, apelidam ou irritam algum colega na escola.";
 
-      vInd[77]  = [4, 11, 2]; vPrg[77] = "77. Eu fui agredido, maltratado, intimidado, amea&ccedil;ado, exclu&iacute;do ou humilhado por algum colega da escola.";
-      vInd[78]  = [4, 11, 2]; vPrg[78] = "78. Eu fui provocado, zoado, apelidado ou irritado por algum colega da escola.";
-      vInd[79]  = [4, 11, 2]; vPrg[79] = "79. Eu tenho medo de alguns alunos.";
-      vInd[80]  = [4, 11, 2]; vPrg[80] = "80. Eu agredi, maltratei, intimidei, ameacei, exclui ou humilhei algum colega da escola.";
-      vInd[81]  = [4, 11, 2]; vPrg[81] = "81. Eu provoquei, zoei, coloquei apelidos ou irritei algum colega da escola.";
-      vInd[82]  = [4, 11, 2]; vPrg[82] = "82. Eu vi algu&eacute;m sendo agredido, maltratado, intimidado, amea&ccedil;ado, exclu&iacute;do ou humilhado por algum colega da escola.";
-      vInd[83]  = [4, 11, 2]; vPrg[83] = "83. Eu vi algu&eacute;m sendo provocado, zoado, recebendo apelidos ou irritado por algum colega da escola.";
+      vSec[nSec++]    = "Se&ccedil;&atilde;o 5 - A fam&iacute;lia, a escola e a comunidade";
 
-      vObs[12]   = "Nos &Uacute;LTIMOS 3 MESES com que frequ&ecirc;ncia essas AGRESS&Otilde;ES ACONTECERAM NOS DIFERENTES AMBIENTES:";
+      vObs[nObs++]    = "Marque o quanto as seguintes situa&ccedil;&otilde;es ocorrem:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "86. As fam&iacute;lias est&atilde;o contentes com a escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "87. As fam&iacute;lias v&atilde;o &agrave;s reuni&otilde;es convocadas pela escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "88. As fam&iacute;lias participam das atividades e eventos organizados pela escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "89. Existe uma boa comunica&ccedil;&atilde;o entre as fam&iacute;lias e os professores.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "90. H&aacute; oportunidade para os pais participarem das decis&otilde;es tomadas pela escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "91. Os pais participam ativamente dos canais de comunica&ccedil;&atilde;o e decis&atilde;o estabelecidos com a escola (Conselhos, organiza&ccedil;&atilde;o de Associa&ccedil;&otilde;es de Pais e Mestres...).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "92. Eu conhe&ccedil;o grande parte dos pais dos meus alunos.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "93. As rela&ccedil;&otilde;es entre os professores e as fam&iacute;lias dos alunos s&atilde;o harmoniosas.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "94. Eu sinto que as fam&iacute;lias valorizam o meu trabalho.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "95. S&atilde;o realizados projetos ou trabalhos que contribuem com a comunidade ou bairro.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "96. S&atilde;o oferecidas propostas de atividades (oficinas, cursos, esportes...) fora do hor&aacute;rio de aula.";
 
-      vInd[84]  = [4, 12, 2]; vPrg[84] = "84. Na classe.";
-      vInd[85]  = [4, 12, 2]; vPrg[85] = "85. Nos corredores.";
-      vInd[86]  = [4, 12, 2]; vPrg[86] = "86. No p&aacute;tio.";
-      vInd[87]  = [4, 12, 2]; vPrg[87] = "87. No refeit&oacute;rio/cantina.";
-      vInd[88]  = [4, 12, 2]; vPrg[88] = "88. Nos banheiros.";
-      vInd[89]  = [4, 12, 2]; vPrg[89] = "89. Na quadra.";
-      vInd[90]  = [4, 12, 2]; vPrg[90] = "90. Em locais pr&oacute;ximos &agrave; escola.";
-      vInd[91]  = [4, 12, 2]; vPrg[91] = "91. Atrav&eacute;s de internet ou celular.";
+      vSec[nSec++]    = "Se&ccedil;&atilde;o 6 - A infraestrutura e a rede f&iacute;sica da escola";
 
-      vObs[13]   = "Assinale a frequ&ecirc;ncia com rela&ccedil;&atilde;o as situa&ccedil;&otilde;es abaixo:";
+      vObs[nObs++]    = "Assinale com que frequ&ecirc;ncia VOC&Ecirc; est&aacute; de acordo com as seguintes afirma&ccedil;&otilde;es. Em sua escola:";
+      nOpc = 2;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "97. O refeit&oacute;rio/cantina &eacute; arejado, limpo e acomoda a todos confortavelmente.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "98. Os banheiros que os alunos usam est&atilde;o em bom estado, limpos, com papel higi&ecirc;nico e sabonete &agrave; disposi&ccedil;&atilde;o.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "99. H&aacute; um acervo atualizado de livros espec&iacute;ficos para as diversas &aacute;reas de atua&ccedil;&atilde;o dos professores.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "100. Os espa&ccedil;os utilizados para atividades f&iacute;sicas e esportivas s&atilde;o adequados.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "101. Os espa&ccedil;os utilizados durante o intervalo e para a conviv&ecirc;ncia s&atilde;o adequados.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "102. H&aacute; recursos financeiros suficientes para atender a manuten&ccedil;&atilde;o e as necessidades da escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "103. As salas de aula s&atilde;o confort&aacute;veis, limpas e conservadas (carteiras e mesas adequadas, boa ilumina&ccedil;&atilde;o e ventila&ccedil;&atilde;o, n&atilde;o h&aacute; ru&iacute;dos).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "104. Os alunos t&ecirc;m livre acesso para utilizar os espa&ccedil;os da escola.";
 
-      vInd[92]  = [4, 13, 2]; vPrg[92] = "92. Se voc&ecirc; fosse agredido, insultado, tivesse fotos ou v&iacute;deos ofensivos postados na internet etc., voc&ecirc; pediria ajuda a seus colegas da escola com que frequ&ecirc;ncia.";
-      vInd[93]  = [4, 13, 2]; vPrg[93] = "93. Se voc&ecirc; fosse agredido, insultado, tivesse fotos ou v&iacute;deos ofensivos postados na internet etc., voc&ecirc; pediria ajuda a um adulto da sua escola com que frequ&ecirc;ncia.";
+      vSec[nSec++]    = "Se&ccedil;&atilde;o 7 - As rela&ccedil;&otilde;es com o trabalho";
 
-      vSec[5] = "Se&ccedil;&atilde;o 5 - A fam&iacute;lia, a escola e a comunidade";
+      vObs[nObs++]    = "Assinale o quanto VOC&Ecirc; est&aacute; satisfeito COM O DESEMPENHO PROFISSIONAL do(s):";
+      nOpc = 3;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "105. Os gestores (diretor e vice-diretor).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "106. Coordenador/orientador.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "107. Funcion&aacute;rios.";
 
-      vObs[14]    = "Marque o quanto as seguintes situa&ccedil;&otilde;es ocorrem:";
+      vObs[nObs++]    = "O quanto VOC&Ecirc; concorda com cada uma das afirma&ccedil;&otilde;es abaixo:";
+      nOpc = 1;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "108. Eu me sinto orgulhoso por trabalhar nesta institui&ccedil;&atilde;o.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "109. Eu me sinto motivado e com vontade de dar aulas nesta escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "110. Eu me sinto reconhecido pelo trabalho que realizo nessa escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "111. Se pudesse, eu deixaria de ser professor.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "112. Eu me sinto apoiado e orientado pela equipe gestora (diretor, vice-diretor, coordenador e orientador).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "113. Sinto-me exausto pelo grande volume de trabalho.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "114. Todos os professores participam das reuni&otilde;es de trabalho coletivo realizadas na escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "115. As oportunidades de estudo e as reuni&otilde;es pedag&oacute;gicas realizadas na minha escola t&ecirc;m contribu&iacute;do para o aperfei&ccedil;oamento do meu trabalho em sala de aula.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "116. Todos agem como se realmente se sentissem respons&aacute;veis pela escola e fazem a sua parte.";
 
-      vInd[94]  = [5, 14, 2]; vPrg[94] = "94. Sua fam&iacute;lia est&aacute; contente com a escola.";
-      vInd[95]  = [5, 14, 2]; vPrg[95] = "95. Sua fam&iacute;lia vai &agrave;s reuni&otilde;es convocadas pela escola.";
-      vInd[96]  = [5, 14, 2]; vPrg[96] = "96. Existe uma boa comunica&ccedil;&atilde;o entre a sua fam&iacute;lia e os professores.";
-      vInd[97]  = [5, 14, 2]; vPrg[97] = "97. Sua fam&iacute;lia participa das atividades e eventos organizados pela escola.";
-      vInd[98]  = [5, 14, 2]; vPrg[98] = "98. H&aacute; oportunidade para os pais participarem das decis&otilde;es tomadas pela escola.";
-      vInd[99]  = [5, 14, 2]; vPrg[99] = "99. Sua escola realiza projetos ou trabalhos de ajuda &agrave; comunidade ou ao bairro.";
-      vInd[100] = [5, 14, 2]; vPrg[100] = "100. Sua escola realiza propostas de atividades (oficinas, cursos, esportes...) fora do hor&aacute;rio de aula.";
+      vSec[nSec++]    = "Se&ccedil;&atilde;o 8 - A gest&atilde;o e a participa&ccedil;&atilde;o";
 
-      vSec[6] = "Se&ccedil;&atilde;o 6 - A infraestrutura e a rede f&iacute;sica da escola";
+      vObs[nObs++]    = "O quanto VOC&Ecirc; concorda com cada uma das afirma&ccedil;&otilde;es abaixo:";
+      nOpc = 1;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "117. A periodicidade das reuni&otilde;es de trabalho coletivo realizadas na escola &eacute; semanal ou quinzenal.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "118. A equipe gestora incentiva a participa&ccedil;&atilde;o dos professores nas decis&otilde;es relacionadas &agrave; vida escolar.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "119. As informa&ccedil;&otilde;es circulam adequadamente, facilitando a participa&ccedil;&atilde;o de todos os profissionais da minha escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "120. A equipe gestora conhece claramente os problemas e as necessidades da escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "121. Os professores iniciantes s&atilde;o orientados e acompanhados pela gest&atilde;o quando come&ccedil;am a dar aulas na escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "122. O diretor est&aacute; sempre presente na escola.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "123. O estilo da gest&atilde;o &eacute; autorit&aacute;rio.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "124. A maioria dos professores respeita as opini&otilde;es e as decis&otilde;es da equipe gestora.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "125. Os professores encontram apoio da equipe gestora para viabilizar seus projetos e atividades (materiais, espa&ccedil;os, recursos...).";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "126. A quantidade de professores e funcion&aacute;rios &eacute; suficiente para que tudo funcione bem.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "127. A jornada de trabalho dos professores contempla um tempo para a participa&ccedil;&atilde;o em reuni&otilde;es, planejamento de aulas e corre&ccedil;&atilde;o de atividades.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "128. O respons&aacute;vel pela coordena&ccedil;&atilde;o pedag&oacute;gica orienta o professor em como melhorar suas aulas.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "129. A minha escola oferece oportunidades de estudo, de qualifica&ccedil;&atilde;o e de forma&ccedil;&atilde;o aos seus profissionais.";
 
-      vObs[15]    = "Assinale com que frequ&ecirc;ncia voc&ecirc; est&aacute; de acordo com as seguintes afirma&ccedil;&otilde;es. Em sua escola:";
+      vSec[nSec++]    = "Se&ccedil;&atilde;o 9 - Conhecendo voc&ecirc;";
+      vObs[nObs++]    = "";
 
-      vInd[101]  = [6, 15, 2]; vPrg[101] = "101. Os banheiros que os alunos usam est&atilde;o em bom estado, limpos e com papel higi&ecirc;nico e sabonete &agrave; disposi&ccedil;&atilde;o.";
-      vInd[102]  = [6, 15, 2]; vPrg[102] = "102. As salas de aula s&atilde;o confort&aacute;veis, limpas e conservadas (carteiras e mesas adequadas, boa ilumina&ccedil;&atilde;o e ventila&ccedil;&atilde;o, n&atilde;o h&aacute; ru&iacute;dos).";
-      vInd[103]  = [6, 15, 2]; vPrg[103] = "103. O refeit&oacute;rio/cantina &eacute; arejado, limpo e acomoda a todos confortavelmente.";
-      vInd[104]  = [6, 15, 2]; vPrg[104] = "104. H&aacute; uma biblioteca com livros variados e interessantes.";
-      vInd[105]  = [6, 15, 2]; vPrg[105] = "105. Os alunos sempre tomam cuidado com os equipamentos, m&oacute;veis, materiais e espa&ccedil;os (banheiros, salas de aula…).";
-      vInd[106]  = [6, 15, 2]; vPrg[106] = "106. Os alunos t&ecirc;m livre acesso aos espa&ccedil;os da escola.";
-      vInd[107]  = [6, 15, 2]; vPrg[107] = "107. Os espa&ccedil;os utilizados para as atividades f&iacute;sicas e esportivas s&atilde;o adequados.";
-      vInd[108]  = [6, 15, 2]; vPrg[108] = "108. Os espa&ccedil;os utilizados durante o intervalo e para a conviv&ecirc;ncia s&atilde;o adequados.";
+      TpPerg[nInd++] = 1;
+      vInd[nInd] = [nSec, nObs, nOpc]; vPrg[nInd] = "130. Sua idade &eacute; _____ anos";
 
-      vSec[7] = "Se&ccedil;&atilde;o 7 - Conhecendo voc&ecirc; e sua fam&iacute;lia";
-      vObs[16]    = "Conhecendo voc&ecirc; e sua fam&iacute;lia";
-
-      TpPerg[109] = 1;
-      vInd[109]  = [7, 16, 0]; vPrg[109] = "109. Sua idade &eacute; _______ anos";
-      TpPerg[110] = 1;
-      vInd[110]  = [7, 16, 0]; vPrg[110] = "110. A quanto tempo voc&ecirc; &eacute; aluno nesta escola_________";
-
+      nOpc = 4;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "131. Sexo:";
       vOpc[4][0] = "Masculino";
       vOpc[4][1] = "Feminino";
 
-      vInd[111]  = [7, 16, 4]; vPrg[111] = "111. Sexo:";
-
+      nOpc = 5;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "132. Como voc&ecirc; se considera?";
       vOpc[5][0] = "Branco(a)";
       vOpc[5][1] = "Pardo(a)";
       vOpc[5][2] = "Preto (a)";
@@ -267,109 +307,57 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
       vOpc[5][4] = "Ind&iacute;gena";
       vOpc[5][5] = "N&atilde;o sei";
 
-      vInd[112]  = [7, 16, 5]; vPrg[112] = "112. Como voc&ecirc; se considera?";
+      nOpc = 6;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "133. Sua(s) &aacute;rea(s) de gradua&ccedil;&atilde;o:";
+      vOpc[6][0] = "Artes";
+      vOpc[6][1] = "Biologia";
+      vOpc[6][2] = "Educa&ccedil;&atilde;o F&iacute;sica";
+      vOpc[6][3] = "Filosofia";
+      vOpc[6][4] = "F&iacute;sica";
+      vOpc[6][5] = "Geografia";
+      vOpc[6][6] = "Hist&oacute;ria";
+      vOpc[6][7] = "Letras";
+      vOpc[6][8] = "Matem&aacute;tica";
+      vOpc[6][9] = "M&uacute;sica";
+      vOpc[6][10] = "Pedagogia";
+      vOpc[6][11] = "Qu&iacute;mica";
+      vOpc[6][12] = "Sociologia";
+      vOpc[6][13] = "Teologia";
+      vOpc[6][14] = "Outros";
 
-      vInd[113]  = [7, 16, 6]; vPrg[113] = "113. Possui alguma defici&ecirc;ncia?";
-      vOpc[6][0] = "Sim";
-      vOpc[6][1] = "N&atilde;o";
+      nOpc = 7;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "134. Sua &uacute;ltima titula&ccedil;&atilde;o:";
+      vOpc[7][0] = "Ensino M&eacute;dio";
+      vOpc[7][1] = "Gradua&ccedil;&atilde;o";
+      vOpc[7][2] = "Especializa&ccedil;&atilde;o / P&oacute;s gradua&ccedil;&atilde;o lato sensu";
+      vOpc[7][3] = "Mestrado";
+      vOpc[7][4] = "Doutorado";
 
-      vInd[114]  = [7, 16, 7]; vPrg[114] = "114. Se sim, especifique:";
-      vOpc[7][0] = "F&iacute;sica";
-      vOpc[7][1] = "Visual";
-      vOpc[7][2] = "Auditiva";
-      vOpc[7][3] = "Intelectual";
-      vOpc[7][4] = "Mista";
+      nOpc = 8;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "135. Voc&ecirc; &eacute; docente:";
+      vOpc[8][0] = "da Educa&ccedil;&atilde;o Infantil";
+      vOpc[8][1] = "do 1º ao 5º ano do Ensino Fundamental";
+      vOpc[8][2] = "do 6º ao 9º ano do Ensino Fundamental";
+      vOpc[8][3] = "do 1º ao 3º ano do Ensino M&eacute;dio";
+      vOpc[8][4] = "do Ensino t&eacute;cnico";
+      vOpc[8][5] = "da Educa&ccedil;&atilde;o de Jovens e Adultos";
 
-      vInd[115]  = [7, 16, 8]; vPrg[115] = "115. Voc&ecirc; trabalha?";
-      vOpc[8][0] = "Sim";
-      vOpc[8][1] = "N&atilde;o";
+      nOpc = 9;
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "136. Trabalha como professor h&aacute;:";
+      vOpc[9][0] = "Um ano ou menos";
+      vOpc[9][1] = "2-3 anos";
+      vOpc[9][2] = "4-5 anos";
+      vOpc[9][3] = "6-10 anos";
+      vOpc[9][4] = "11-20 anos";
+      vOpc[9][5] = "Mais de 20 anos";
 
-      vOpc[9][0] = "0";
-      vOpc[9][1] = "1";
-      vOpc[9][2] = "2";
-      vOpc[9][3] = "3";
-      vOpc[9][4] = "4 ou +";
-
-      TpPerg[116] = 2;
-      vInd[116]  = [7, 16, 9]; vPrg[116] = "116. Marque quais e quantos dos t&oacute;picos abaixo existem em sua casa?";
-      var TpPerg2 = []
-      TpPerg2[1] = "116.a. Quantos televisores em cores existem em sua casa?"
-      TpPerg2[2] = "116.b. Quantos radios existem em sua casa?"
-      TpPerg2[3] = "116.c. Quantos banheiros existem em sua casa?"
-      TpPerg2[4] = "116.d. Quantos autom&oacute;veis existem em sua casa?"
-      TpPerg2[5] = "116.e. Quantas empregadas mensalistas existem em sua casa?"
-      TpPerg2[6] = "116.f. Quantas m&aacute;quinas de lavar existem em sua casa?"
-      TpPerg2[7] = "116.g. Quantos videocassetes e/ou DVDs existem em sua casa?"
-      TpPerg2[8] = "116.h. Quantas geladeiras existem em sua casa?"
-      TpPerg2[9] = "116.i. Quantos freezeres (aparelho independente ou parte da geladeira duplex) existem em sua casa?"
-
-      TpPerg[117] = 3;
-      vInd[117]  = [7, 16, 10]; vPrg[117] = "117. Quem vive com voc&ecirc; em sua casa? Marque todas as alternativas que se aplicam no seu caso.";
-      vOpc[10][0] = "M&atilde;e";
-      vOpc[10][1] = "Pai";
-      vOpc[10][2] = "Av&oacute;";
-      vOpc[10][3] = "Av&ocirc;";
-      vOpc[10][4] = "Madrasta ou companheira de seu respons&aacute;vel";
-      vOpc[10][5] = "Padrasto ou companheiro de seu respons&aacute;vel";
-      vOpc[10][6] = "Irm&atilde;os";
-      vOpc[10][7] = "Outros (por exemplo: primos, tios...)";
-
-      vInd[118]  = [7, 16, 11]; vPrg[118] = "118. Quem &eacute; o principal respons&aacute;vel por voc&ecirc; em sua casa?";
-      vOpc[11][0] = "M&atilde;e";
-      vOpc[11][1] = "Pai";
-      vOpc[11][2] = "Av&oacute;";
-      vOpc[11][3] = "Av&ocirc;";
-      vOpc[11][4] = "Madrasta ou companheira de seu respons&aacute;vel";
-      vOpc[11][5] = "Padrasto ou companheiro de seu respons&aacute;vel";
-      vOpc[11][6] = "Irm&atilde;os";
-      vOpc[11][7] = "Outros (por exemplo: primos, tios...)";
-
-      vInd[119]  = [7, 16, 12]; vPrg[119] = "119. Qual &eacute; a atividade dessa pessoa (respons&aacute;vel)?";
-      vOpc[12][0] = "Trabalha fora de casa o dia todo";
-      vOpc[12][1] = "Trabalha fora de casa meio per&iacute;odo";
-      vOpc[12][2] = "Trabalha em casa com atividades remuneradas (recebe pagamentos)";
-      vOpc[12][3] = "Trabalha somente nas tarefas de casa";
-      vOpc[12][4] = "Desempregado";
-      vOpc[12][5] = "Aposentado";
-
-      vInd[120]  = [7, 16, 13]; vPrg[120] = "120. At&eacute; qual n&iacute;vel de estudos voc&ecirc; pretende concluir no futuro?";
-      vOpc[13][0] = "Ensino fundamental";
-      vOpc[13][1] = "Ensino m&eacute;dio";
-      vOpc[13][2] = "Ensino profissionalizante (t&eacute;cnico)";
-      vOpc[13][3] = "Faculdade";
-      vOpc[13][4] = "P&oacute;s-gradua&ccedil;&atilde;o";
-
-      vInd[121]  = [7, 16, 14]; vPrg[121] = "121. Voc&ecirc; j&aacute; foi reprovado?";
-      vOpc[14][0] = "Nunca";
-      vOpc[14][1] = "Uma vez";
-      vOpc[14][2] = "Duas vezes ou mais";
-
-      vInd[122]  = [7, 16, 15]; vPrg[122] = "122. Em rela&ccedil;&atilde;o aos seus estudos, como voc&ecirc; acredita estar:";
-      vOpc[15][0] = "Muito bem";
-      vOpc[15][1] = "Bem";
-      vOpc[15][2] = "Nem t&atilde;o bem, mas nem t&atilde;o mal";
-      vOpc[15][3] = "Mal";
-
-      vInd[123]  = [7, 16, 16]; vPrg[123] = "123. Quantos bons amigos ou amigas voc&ecirc; tem na escola?";
-      vOpc[16][0] = "Nenhum";
-      vOpc[16][1] = "1";
-      vOpc[16][2] = "2 ou 3";
-      vOpc[16][3] = "4 ou mais.";
+      vInd[nInd++] = [nSec, nObs, nOpc]; vPrg[nInd] = "137. Voc&ecirc; &eacute; professor nessa escola h&aacute;:";
 
       var Resp = [];
-      for (Ind = 0; Ind <= 123; Ind++) {
+      for (Ind = 0; Ind <= 137; Ind++) {
           Resp[Ind] = 0;
       }
-      Resp[109] = "";
-      Resp[110] = "";
-      var Resp2 = [];
-      for (Ind = 0; Ind <= 9; Ind++) {
-          Resp2[Ind] = 0;
-      }
-      var Resp3 = [];
-      for (Ind = 0; Ind <= 7; Ind++) {
-          Resp3[Ind] = 0;
-      }
+      Resp[130] = "";
 
     var Escola = [];
     var Turma = [];
@@ -590,7 +578,7 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
           if (XNPg == 2 && XDir == ">") {
               obj = document.getElementById("nmSENHA");
               if (obj != null) {
-                  if (obj.value != '1234') {
+                  if (obj.value != 'abcd') {
                       alert("Senha inválida!");
                       XNPg = 1;
                   }
@@ -649,7 +637,7 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
               document.getElementById("btPrx").disabled = true;
 
               Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
-              Txt += "      <B>TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (resumido)</B> Estudantes";
+              Txt += "      <B>TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (resumido)</B> Professores";
               Txt += "    </div>";
               Txt += "    <div class='panel-body'>";
               Txt += "              <TABLE width='100%'>";
@@ -709,7 +697,7 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
               document.getElementById("btPrx").disabled = false;
 
               Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
-              Txt += "      <B>ALUNOS</B>";
+              Txt += "      <B>PROFESSORES</B>";
               Txt += "    </div>";
               Txt += "    <div class='panel-body'>";
               Txt += "              <TABLE width='100%'>";
@@ -718,7 +706,7 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
               Txt += "                    <B>Nosso objetivo &eacute; saber o que voc&ecirc; pensa sobre a sua escola.<BR>";
               Txt += "                    As informa&ccedil;&otilde;es desta pesquisa v&atilde;o nos ajudar a melhorar as rela&ccedil;&otilde;es interpessoais, as condi&ccedil;&otilde;es";
               Txt += "                    de aprendizagem e o ambiente geral da escola.<BR>";
-              Txt += "                    Esse &eacute; um question&aacute;rio direcionado aos alunos desta institui&ccedil;&atilde;o educacional.<BR>";
+              Txt += "                    Esse &eacute; um question&aacute;rio direcionado aos professores desta institui&ccedil;&atilde;o educacional.<BR>";
               Txt += "                    Todas as respostas ser&atilde;o tratadas de forma estritamente CONFIDENCIAL.<BR>";
               Txt += "                    Esse question&aacute;rio &eacute; an&ocirc;nimo, secreto e individual, por isso lhe pedimos que o responda com";
               Txt += "                    sinceridade e dizendo exatamente o que voc&ecirc; pensa ou sente em rela&ccedil;&atilde;o ao que tem vivenciado";
@@ -726,7 +714,7 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
               Txt += "                    Respond&ecirc;-lo &eacute; importante porque possibilitar&aacute; conhecer o que est&aacute; indo bem e o que necessita ser";
               Txt += "                    melhorado quanto &agrave; conviv&ecirc;ncia escolar.<BR>";
               Txt += "                    Por favor, leia cada pergunta atentamente e assinale a(s) alternativa(s) respondendo o que tem";
-              Txt += "                    acontecido em sua escola. Suas respostas ser&atilde;o agrupadas com as dos demais alunos para";
+              Txt += "                    acontecido em sua escola. Suas respostas ser&atilde;o agrupadas com as dos demais professores para";
               Txt += "                    podermos conhecer como todos percebem o clima da escola.<BR>";
               Txt += "                    Agradecemos muito a sua colabora&ccedil;&atilde;o!<BR>";
               Txt += "                  </div>";
@@ -827,7 +815,7 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
                   }
               }
           } else 
-          if (NPg == 124) {
+          if (NPg == 142) {
               Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
               Txt += "      <B> Question&aacute;rio Encerrado </B>";
               Txt += "    </div>";
@@ -993,7 +981,7 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
 
       }
 
-          if (NPg == 124) {
+          if (NPg == 142) {
               document.getElementById("btAnt").style.display = "none";
               document.getElementById("btPrx").style.display = "none";
               document.getElementById("btEnc").style.display = "inline";
@@ -1019,7 +1007,7 @@ file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/i
           
       function Entrada() {
           document.onkeydown = utfmt002_keyDown;                                                           
-          monta_perg(128);
+          monta_perg(1);
       }
 
       function jsExibe(Tipo) {
@@ -1481,7 +1469,7 @@ alert('e');
           <div class="panel panel-default">
             <div class="panel-heading" style='color:white; background-image: linear-gradient(#052142, #052142);'>              
               <CENTER><h1 class="panel-title" style="font-size:20px;">
-                <B>Pesquisa Sobre Clima Escolar - ALUNOS</B>
+                <B>Pesquisa Sobre Clima Escolar - PROFESSORES</B>
               </h1>
             </div>
 <CENTER>
