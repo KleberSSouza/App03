@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=ISO-8859-1" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <meta name="description" content="">
+        <meta name="author" content="KLESO Informática">
+        <title>Pesquisa Sobre Clima Escolar</title>
+
+<!--
+Gravar informações
+Atualizar informações
+
+file:///C:/copia%2020140511/Samuel/Clima%20e%20Funcionamento%20da%20Escola/web/index_aluno.html
+
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+  <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <meta http-equiv="Content-type" content="text/html;charset=ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  -->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/theme.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="./js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script language='Javascript' src='./js/utfmt002.js'></script>
+
+    <SCRIPT>
+      var PergAtual = 1;
+      var NPg2 = 1;
+      var flgTp2 = false;
+
+      var vSec = [];
+      var vObs = [];
+      var vOpc = [[0,], [1,], [2,], [3,], [4,], [5,], [6,], [7,], [8,], [9,], [10,], [11,], [12,], [13,], [14,], [15,], [16,]];
+      var vPrg = [];
+      var vInd = [[]];
+      var TpPerg = [];
+
+      vSec[1]    = "Se&ccedil;&atilde;o 1 - As rela&ccedil;&otilde;es com o ensino e com a aprendizagem";
+      vObs[1]    = "Marque o quanto VOC&Ecirc; concorda com cada uma das afirma&ccedil;&otilde;es abaixo:"
+      vOpc[1][0] = "N&atilde;o Concordo";
+      vOpc[1][1] = "Concordo Pouco";
+      vOpc[1][2] = "Concordo";
+      vOpc[1][3] = "Concordo Muito";
+
+      vInd[1]  = [1, 1, 1]; vPrg[1] = "1. O que aprendo na escola &eacute; &uacute;til para a minha vida.";
+      vInd[2]  = [1, 1, 1]; vPrg[2] = "2. A maioria dos estudantes da minha escola ser&aacute; capaz de ter &ecirc;xito realizando faculdades.";
+      vInd[3]  = [1, 1, 1]; vPrg[3] = "3. Na minha escola os professores consideram o comportamento dos alunos para dar as notas.";
+      vInd[4]  = [1, 1, 1]; vPrg[4] = "4. A quantidade de li&ccedil;&atilde;o de casa &eacute; bem distribu&iacute;da entre as mat&eacute;rias.";
+      vInd[5]  = [1, 1, 1]; vPrg[5] = "5. Os professores desta escola chegam atrasados com frequ&ecirc;ncia.";
+      vInd[6]  = [1, 1, 1]; vPrg[6] = "6. Os professores desta escola costumam faltar.";
+      vInd[7]  = [1, 1, 1]; vPrg[7] = "7. Considero justo o jeito que os professores d&atilde;o as notas.";
+
+      vObs[2]    = "Com que frequ&ecirc;ncia as situa&ccedil;&otilde;es abaixo acontecem com OS ESTUDANTES DE SUA CLASSE:"
+      vOpc[2][0] = "Nunca";
+      vOpc[2][1] = "Algumas vezes";
+      vOpc[2][2] = "Muitas vezes";
+      vOpc[2][3] = "Sempre";
+
+      vInd[8]   = [1, 2, 2]; vPrg[8]  = "8. Parecem desinteressados e entediados.";
+      vInd[9]   = [1, 2, 2]; vPrg[9]  = "9. Chegam atrasados.";
+      vInd[10]  = [1, 2, 2]; vPrg[10] = "10. Atrapalham a aula.";
+      vInd[11]  = [1, 2, 2]; vPrg[11] = "11. Fazem as li&ccedil;&otilde;es de casa.";
+      vInd[12]  = [1, 2, 2]; vPrg[12] = "12. Quando n&atilde;o entendem alguma coisa, podem perguntar para os professores v&aacute;rias vezes at&eacute; entenderem.";
+
+      vInd[13]  = [1, 1, 1]; vPrg[13] = "";
+
+      vObs[3]    = "Marque a ocorr&ecirc;ncia das seguintes situa&ccedil;&otilde;es. Os PROFESSORES de sua turma:"
+      vInd[13]  = [1, 3, 2]; vPrg[13] = "13. Explicam de forma clara.";
+      vInd[14]  = [1, 3, 2]; vPrg[14] = "14. Conseguem manter a ordem durante a aula.";
+      vInd[15]  = [1, 3, 2]; vPrg[15] = "15. Prop&otilde;em atividades em grupos que promovem a troca de ideias e a coopera&ccedil;&atilde;o.";
+      vInd[16]  = [1, 3, 2]; vPrg[16] = "16. Incentivam a colabora&ccedil;&atilde;o dos alunos no planejamento das atividades.";
+      vInd[17]  = [1, 3, 2]; vPrg[17] = "17. Apoiam e incentivam os alunos.";
+      vInd[18]  = [1, 3, 2]; vPrg[18] = "18. Parecem estar desmotivados e sem vontade de dar aulas.";
+      vInd[19]  = [1, 3, 2]; vPrg[19] = "19. Incentivam os alunos a usarem computadores ou outros aparelhos conectados &agrave; internet durante as aulas.";
+      vInd[20]  = [1, 3, 2]; vPrg[20] = "20. Incentivam os alunos a usarem a biblioteca.";
+
+      vSec[2] = "Se&ccedil;&atilde;o 2 - As rela&ccedil;&otilde;es sociais e os conflitos na escola";
+
+      vObs[4]    = "O quanto VOC&Ecirc; est&aacute; satisfeito com a rela&ccedil;&atilde;o que tem com:";
+      vOpc[3][0] = "Nada satisfeito";
+      vOpc[3][1] = "Pouco satisfeito";
+      vOpc[3][2] = "Satisfeito";
+      vOpc[3][3] = "Muito satisfeito";
+
+      vInd[21]  = [2, 4, 3]; vPrg[21] = "21. Os gestores (diretor, vice diretor…).";
+      vInd[22]  = [2, 4, 3]; vPrg[22] = "22. O coordenador/orientador.";
+      vInd[23]  = [2, 4, 3]; vPrg[23] = "23. Os funcion&aacute;rios.";
+
+      vObs[5]    = "O quanto VOC&Ecirc; concorda com cada uma das afirma&ccedil;&otilde;es abaixo sobre a sua escola:";
+
+      vInd[24]  = [2, 5, 1]; vPrg[24] = "24. H&aacute; muitas situa&ccedil;&otilde;es de conflitos entre os alunos e os professores.";
+      vInd[25]  = [2, 5, 1]; vPrg[25] = "25. Estou satisfeito com a rela&ccedil;&atilde;o que tenho com meus colegas.";
+      vInd[26]  = [2, 5, 1]; vPrg[26] = "26. Sinto-me s&oacute;.";
+      vInd[27]  = [2, 5, 1]; vPrg[27] = "27. Os estudantes se ajudam mesmo que n&atilde;o sejam amigos.";
+      vInd[28]  = [2, 5, 1]; vPrg[28] = "28. H&aacute; muitas situa&ccedil;&otilde;es de conflitos entre os alunos.";
+      vInd[29]  = [2, 5, 1]; vPrg[29] = "29. Os estudantes com defici&ecirc;ncia t&ecirc;m o apoio que precisam por parte dos alunos.";
+      vInd[30]  = [2, 5, 1]; vPrg[30] = "30. As pessoas demonstram boa vontade para resolver os problemas nesta escola.";
+      vInd[31]  = [2, 5, 1]; vPrg[31] = "31. Se eu pudesse, eu mudaria de escola.";
+
+      vObs[6]    = "Indique a frequ&ecirc;ncia em que as situa&ccedil;&otilde;es abaixo ocorrem em sua escola:";
+
+      vInd[32]  = [2, 6, 2]; vPrg[32] = "32. Os alunos desrespeitam os professores.";
+      vInd[33]  = [2, 6, 2]; vPrg[33] = "33. Os funcion&aacute;rios tratam todos os alunos com respeito.";
+      vInd[34]  = [2, 6, 2]; vPrg[34] = "34. Os alunos ofendem ou amea&ccedil;am alguns professores.";
+      vInd[35]  = [2, 6, 2]; vPrg[35] = "35. Os alunos sentem que podem expressar suas opini&otilde;es e que elas s&atilde;o consideradas.";
+      vInd[36]  = [2, 6, 2]; vPrg[36] = "36. Os estudantes com defici&ecirc;ncia t&ecirc;m o apoio que precisam dos professores para se sentirem bem integrados ao grupo.";
+      vInd[37]  = [2, 6, 2]; vPrg[37] = "37. A equipe gestora (orientador, coordenador, vice-diretor, diretor) demonstra preocupa&ccedil;&atilde;o com a vida dos alunos fora da escola.";
+      vInd[38]  = [2, 6, 2]; vPrg[38] = "38. Tenho medo de alguns professores.";
+
+      vObs[7]    = "Marque a ocorr&ecirc;ncia das seguintes situa&ccedil;&otilde;es. Os PROFESSORES de sua classe:";
+
+      vInd[39]  = [2, 7, 2]; vPrg[39] = "39. Demonstram interesse pela nossa vida fora da escola.";
+      vInd[40]  = [2, 7, 2]; vPrg[40] = "40. Escutam o que temos a dizer.";
+      vInd[41]  = [2, 7, 2]; vPrg[41] = "41. Implicam com alguns alunos.";
+      vInd[42]  = [2, 7, 2]; vPrg[42] = "42. Gritam.";
+      vInd[43]  = [2, 7, 2]; vPrg[43] = "43. Amea&ccedil;am alguns estudantes.";
+      vInd[44]  = [2, 7, 2]; vPrg[44] = "44. Tiram sarro ou humilham alguns estudantes.";
+
+      vSec[3] = "Se&ccedil;&atilde;o 3 - As regras, as san&ccedil;&otilde;es e a seguran&ccedil;a na escola";
+
+      vObs[8]    = "Marque com que frequ&ecirc;ncia as situa&ccedil;&otilde;es abaixo ocorrem em sua escola:";
+
+      vInd[45]  = [3, 8, 2]; vPrg[45] = "45. Os estudantes participam da elabora&ccedil;&atilde;o e das mudan&ccedil;as de regras da escola.";
+      vInd[46]  = [3, 8, 2]; vPrg[46] = "46. Em geral, os adultos (professores, funcion&aacute;rios e dire&ccedil;&atilde;o) cumprem as regras da escola.";
+      vInd[47]  = [3, 8, 2]; vPrg[47] = "47. Em geral, os estudantes cumprem as regras da escola.";
+      vInd[48]  = [3, 8, 2]; vPrg[48] = "48. Os alunos conhecem e compreendem as regras.";
+      vInd[49]  = [3, 8, 2]; vPrg[49] = "49. As regras s&atilde;o justas e valem para todos (alunos, professores, funcion&aacute;rios, diretor).";
+      vInd[50]  = [3, 8, 2]; vPrg[50] = "50. H&aacute; momentos e espa&ccedil;os destinados a discutir os problemas de conviv&ecirc;ncia, de disciplina e as regras na escola.";
+      vInd[51]  = [3, 8, 2]; vPrg[51] = "51. Alguns alunos v&ecirc;m para a escola embriagados ou drogados.";
+      vInd[52]  = [3, 8, 2]; vPrg[52] = "52. Alguns alunos traficam drogas dentro da escola.";
+      vInd[53]  = [3, 8, 2]; vPrg[53] = "53. Alguns alunos trazem armas, facas, canivetes, etc.";
+      vInd[54]  = [3, 8, 2]; vPrg[54] = "54. Os professores favorecem a alguns alunos mais que a outros.";
+      vInd[55]  = [3, 8, 2]; vPrg[55] = "55. Na maior parte das vezes, a escola castiga ou d&aacute; bronca no grupo todo e n&atilde;o apenas nos envolvidos.";
+      vInd[56]  = [3, 8, 2]; vPrg[56] = "56. As puni&ccedil;&otilde;es s&atilde;o impostas sem o aluno ser ouvido.";
+      vInd[57]  = [3, 8, 2]; vPrg[57] = "57. A escola faz diferen&ccedil;a ao dar um castigo para uns e n&atilde;o para outros que descumpriram uma mesma regra.";
+      vInd[58]  = [3, 8, 2]; vPrg[58] = "58. Quando ocorrem situa&ccedil;&otilde;es de conflitos podemos contar com os adultos para ajudar a resolv&ecirc;-los.";
+      vInd[59]  = [3, 8, 2]; vPrg[59] = "59. Os conflitos s&atilde;o resolvidos de forma justa para os envolvidos.";
+
+      vObs[9]    = "Com que frequ&ecirc;ncia OS PROFESSORES tomam as atitudes abaixo quando os alunos se envolvem em conflitos ou desobedecem &agrave;s regras:";
+
+      vInd[60]  = [3, 9, 2]; vPrg[60] = "60. Fingem que n&atilde;o perceberam.";
+      vInd[61]  = [3, 9, 2]; vPrg[61] = "61. Informam a fam&iacute;lia sobre o ocorrido para que tome provid&ecirc;ncias.";
+      vInd[62]  = [3, 9, 2]; vPrg[62] = "62. Os alunos envolvidos s&atilde;o ouvidos e incentivados a buscar solu&ccedil;&otilde;es para o problema.";
+      vInd[63]  = [3, 9, 2]; vPrg[63] = "63. Colocam os alunos para fora da sala de aula.";
+      vInd[64]  = [3, 9, 2]; vPrg[64] = "64. Mudam os alunos de lugar na sala de aula.";
+      vInd[65]  = [3, 9, 2]; vPrg[65] = "65. Retiram um objeto (celular, fone de ouvido…) que pertence ao aluno.";
+      vInd[66]  = [3, 9, 2]; vPrg[66] = "66. N&atilde;o sabem o que fazer.";
+      vInd[67]  = [3, 9, 2]; vPrg[67] = "67. Encaminham para a dire&ccedil;&atilde;o/ coordena&ccedil;&atilde;o/orienta&ccedil;&atilde;o.";
+
+      vObs[10]   = "Com que frequ&ecirc;ncia a ESCOLA toma as atitudes abaixo quando os alunos se agridem, se envolvem em conflitos ou desobedecem &agrave;s regras:";
+
+      vInd[68]  = [3, 10, 2]; vPrg[68] = "68. Os alunos envolvidos recebem advert&ecirc;ncia oralmente ou por escrito.";
+      vInd[69]  = [3, 10, 2]; vPrg[69] = "69. Os alunos s&atilde;o humilhados na frente dos colegas.";
+      vInd[70]  = [3, 10, 2]; vPrg[70] = "70. Os alunos envolvidos s&atilde;o suspensos.";
+      vInd[71]  = [3, 10, 2]; vPrg[71] = "71. Os alunos envolvidos s&atilde;o ouvidos e convidados a reparar seus erros.";
+      vInd[72]  = [3, 10, 2]; vPrg[72] = "72. A escola informa o ocorrido &agrave; fam&iacute;lia (na entrada ou sa&iacute;da, por telefone, por meio de bilhetes ou notifica&ccedil;&otilde;es eletr&ocirc;nicas) pedindo que tome provid&ecirc;ncias.";
+      vInd[73]  = [3, 10, 2]; vPrg[73] = "73. Os alunos s&atilde;o transferidos de escola.";
+      vInd[74]  = [3, 10, 2]; vPrg[74] = "74. Os alunos s&atilde;o encaminhados para o Conselho Tutelar.";
+      vInd[75]  = [3, 10, 2]; vPrg[75] = "75. A escola registra um boletim de ocorr&ecirc;ncia na pol&iacute;cia.";
+      vInd[76]  = [3, 10, 2]; vPrg[76] = "76. A escola impede que alunos participem de atividades que gostam (recreio, Educa&ccedil;&atilde;o F&iacute;sica, festa, excurs&atilde;o, etc.).";
+
+
+      vSec[4] = "Se&ccedil;&atilde;o 4 - As situa&ccedil;&otilde;es de intimida&ccedil;&atilde;o entre alunos";
+
+      vObs[11]   = "Assinale com que frequ&ecirc;ncia as situa&ccedil;&otilde;es abaixo ocorreram com voc&ecirc; nos &Uacute;LTIMOS 3 MESES:";
+
+      vInd[77]  = [4, 11, 2]; vPrg[77] = "77. Eu fui agredido, maltratado, intimidado, amea&ccedil;ado, exclu&iacute;do ou humilhado por algum colega da escola.";
+      vInd[78]  = [4, 11, 2]; vPrg[78] = "78. Eu fui provocado, zoado, apelidado ou irritado por algum colega da escola.";
+      vInd[79]  = [4, 11, 2]; vPrg[79] = "79. Eu tenho medo de alguns alunos.";
+      vInd[80]  = [4, 11, 2]; vPrg[80] = "80. Eu agredi, maltratei, intimidei, ameacei, exclui ou humilhei algum colega da escola.";
+      vInd[81]  = [4, 11, 2]; vPrg[81] = "81. Eu provoquei, zoei, coloquei apelidos ou irritei algum colega da escola.";
+      vInd[82]  = [4, 11, 2]; vPrg[82] = "82. Eu vi algu&eacute;m sendo agredido, maltratado, intimidado, amea&ccedil;ado, exclu&iacute;do ou humilhado por algum colega da escola.";
+      vInd[83]  = [4, 11, 2]; vPrg[83] = "83. Eu vi algu&eacute;m sendo provocado, zoado, recebendo apelidos ou irritado por algum colega da escola.";
+
+      vObs[12]   = "Nos &Uacute;LTIMOS 3 MESES com que frequ&ecirc;ncia essas AGRESS&Otilde;ES ACONTECERAM NOS DIFERENTES AMBIENTES:";
+
+      vInd[84]  = [4, 12, 2]; vPrg[84] = "84. Na classe.";
+      vInd[85]  = [4, 12, 2]; vPrg[85] = "85. Nos corredores.";
+      vInd[86]  = [4, 12, 2]; vPrg[86] = "86. No p&aacute;tio.";
+      vInd[87]  = [4, 12, 2]; vPrg[87] = "87. No refeit&oacute;rio/cantina.";
+      vInd[88]  = [4, 12, 2]; vPrg[88] = "88. Nos banheiros.";
+      vInd[89]  = [4, 12, 2]; vPrg[89] = "89. Na quadra.";
+      vInd[90]  = [4, 12, 2]; vPrg[90] = "90. Em locais pr&oacute;ximos &agrave; escola.";
+      vInd[91]  = [4, 12, 2]; vPrg[91] = "91. Atrav&eacute;s de internet ou celular.";
+
+      vObs[13]   = "Assinale a frequ&ecirc;ncia com rela&ccedil;&atilde;o as situa&ccedil;&otilde;es abaixo:";
+
+      vInd[92]  = [4, 13, 2]; vPrg[92] = "92. Se voc&ecirc; fosse agredido, insultado, tivesse fotos ou v&iacute;deos ofensivos postados na internet etc., voc&ecirc; pediria ajuda a seus colegas da escola com que frequ&ecirc;ncia.";
+      vInd[93]  = [4, 13, 2]; vPrg[93] = "93. Se voc&ecirc; fosse agredido, insultado, tivesse fotos ou v&iacute;deos ofensivos postados na internet etc., voc&ecirc; pediria ajuda a um adulto da sua escola com que frequ&ecirc;ncia.";
+
+      vSec[5] = "Se&ccedil;&atilde;o 5 - A fam&iacute;lia, a escola e a comunidade";
+
+      vObs[14]    = "Marque o quanto as seguintes situa&ccedil;&otilde;es ocorrem:";
+
+      vInd[94]  = [5, 14, 2]; vPrg[94] = "94. Sua fam&iacute;lia est&aacute; contente com a escola.";
+      vInd[95]  = [5, 14, 2]; vPrg[95] = "95. Sua fam&iacute;lia vai &agrave;s reuni&otilde;es convocadas pela escola.";
+      vInd[96]  = [5, 14, 2]; vPrg[96] = "96. Existe uma boa comunica&ccedil;&atilde;o entre a sua fam&iacute;lia e os professores.";
+      vInd[97]  = [5, 14, 2]; vPrg[97] = "97. Sua fam&iacute;lia participa das atividades e eventos organizados pela escola.";
+      vInd[98]  = [5, 14, 2]; vPrg[98] = "98. H&aacute; oportunidade para os pais participarem das decis&otilde;es tomadas pela escola.";
+      vInd[99]  = [5, 14, 2]; vPrg[99] = "99. Sua escola realiza projetos ou trabalhos de ajuda &agrave; comunidade ou ao bairro.";
+      vInd[100] = [5, 14, 2]; vPrg[100] = "100. Sua escola realiza propostas de atividades (oficinas, cursos, esportes...) fora do hor&aacute;rio de aula.";
+
+      vSec[6] = "Se&ccedil;&atilde;o 6 - A infraestrutura e a rede f&iacute;sica da escola";
+
+      vObs[15]    = "Assinale com que frequ&ecirc;ncia voc&ecirc; est&aacute; de acordo com as seguintes afirma&ccedil;&otilde;es. Em sua escola:";
+
+      vInd[101]  = [6, 15, 2]; vPrg[101] = "101. Os banheiros que os alunos usam est&atilde;o em bom estado, limpos e com papel higi&ecirc;nico e sabonete &agrave; disposi&ccedil;&atilde;o.";
+      vInd[102]  = [6, 15, 2]; vPrg[102] = "102. As salas de aula s&atilde;o confort&aacute;veis, limpas e conservadas (carteiras e mesas adequadas, boa ilumina&ccedil;&atilde;o e ventila&ccedil;&atilde;o, n&atilde;o h&aacute; ru&iacute;dos).";
+      vInd[103]  = [6, 15, 2]; vPrg[103] = "103. O refeit&oacute;rio/cantina &eacute; arejado, limpo e acomoda a todos confortavelmente.";
+      vInd[104]  = [6, 15, 2]; vPrg[104] = "104. H&aacute; uma biblioteca com livros variados e interessantes.";
+      vInd[105]  = [6, 15, 2]; vPrg[105] = "105. Os alunos sempre tomam cuidado com os equipamentos, m&oacute;veis, materiais e espa&ccedil;os (banheiros, salas de aula…).";
+      vInd[106]  = [6, 15, 2]; vPrg[106] = "106. Os alunos t&ecirc;m livre acesso aos espa&ccedil;os da escola.";
+      vInd[107]  = [6, 15, 2]; vPrg[107] = "107. Os espa&ccedil;os utilizados para as atividades f&iacute;sicas e esportivas s&atilde;o adequados.";
+      vInd[108]  = [6, 15, 2]; vPrg[108] = "108. Os espa&ccedil;os utilizados durante o intervalo e para a conviv&ecirc;ncia s&atilde;o adequados.";
+
+      vSec[7] = "Se&ccedil;&atilde;o 7 - Conhecendo voc&ecirc; e sua fam&iacute;lia";
+      vObs[16]    = "Conhecendo voc&ecirc; e sua fam&iacute;lia";
+
+      TpPerg[109] = 1;
+      vInd[109]  = [7, 16, 0]; vPrg[109] = "109. Sua idade &eacute; _______ anos";
+      TpPerg[110] = 1;
+      vInd[110]  = [7, 16, 0]; vPrg[110] = "110. A quanto tempo voc&ecirc; &eacute; aluno nesta escola_________";
+
+      vOpc[4][0] = "Masculino";
+      vOpc[4][1] = "Feminino";
+
+      vInd[111]  = [7, 16, 4]; vPrg[111] = "111. Sexo:";
+
+      vOpc[5][0] = "Branco(a)";
+      vOpc[5][1] = "Pardo(a)";
+      vOpc[5][2] = "Preto (a)";
+      vOpc[5][3] = "Amarelo(a) (de origem oriental)";
+      vOpc[5][4] = "Ind&iacute;gena";
+      vOpc[5][5] = "N&atilde;o sei";
+
+      vInd[112]  = [7, 16, 5]; vPrg[112] = "112. Como voc&ecirc; se considera?";
+
+      vInd[113]  = [7, 16, 6]; vPrg[113] = "113. Possui alguma defici&ecirc;ncia?";
+      vOpc[6][0] = "Sim";
+      vOpc[6][1] = "N&atilde;o";
+
+      vInd[114]  = [7, 16, 7]; vPrg[114] = "114. Se sim, especifique:";
+      vOpc[7][0] = "F&iacute;sica";
+      vOpc[7][1] = "Visual";
+      vOpc[7][2] = "Auditiva";
+      vOpc[7][3] = "Intelectual";
+      vOpc[7][4] = "Mista";
+
+      vInd[115]  = [7, 16, 8]; vPrg[115] = "115. Voc&ecirc; trabalha?";
+      vOpc[8][0] = "Sim";
+      vOpc[8][1] = "N&atilde;o";
+
+      vOpc[9][0] = "0";
+      vOpc[9][1] = "1";
+      vOpc[9][2] = "2";
+      vOpc[9][3] = "3";
+      vOpc[9][4] = "4 ou +";
+
+      TpPerg[116] = 2;
+      vInd[116]  = [7, 16, 9]; vPrg[116] = "116. Marque quais e quantos dos t&oacute;picos abaixo existem em sua casa?";
+      var TpPerg2 = []
+      TpPerg2[1] = "116.a. Quantos televisores em cores existem em sua casa?"
+      TpPerg2[2] = "116.b. Quantos radios existem em sua casa?"
+      TpPerg2[3] = "116.c. Quantos banheiros existem em sua casa?"
+      TpPerg2[4] = "116.d. Quantos autom&oacute;veis existem em sua casa?"
+      TpPerg2[5] = "116.e. Quantas empregadas mensalistas existem em sua casa?"
+      TpPerg2[6] = "116.f. Quantas m&aacute;quinas de lavar existem em sua casa?"
+      TpPerg2[7] = "116.g. Quantos videocassetes e/ou DVDs existem em sua casa?"
+      TpPerg2[8] = "116.h. Quantas geladeiras existem em sua casa?"
+      TpPerg2[9] = "116.i. Quantos freezeres (aparelho independente ou parte da geladeira duplex) existem em sua casa?"
+
+      TpPerg[117] = 3;
+      vInd[117]  = [7, 16, 10]; vPrg[117] = "117. Quem vive com voc&ecirc; em sua casa? Marque todas as alternativas que se aplicam no seu caso.";
+      vOpc[10][0] = "M&atilde;e";
+      vOpc[10][1] = "Pai";
+      vOpc[10][2] = "Av&oacute;";
+      vOpc[10][3] = "Av&ocirc;";
+      vOpc[10][4] = "Madrasta ou companheira de seu respons&aacute;vel";
+      vOpc[10][5] = "Padrasto ou companheiro de seu respons&aacute;vel";
+      vOpc[10][6] = "Irm&atilde;os";
+      vOpc[10][7] = "Outros (por exemplo: primos, tios...)";
+
+      vInd[118]  = [7, 16, 11]; vPrg[118] = "118. Quem &eacute; o principal respons&aacute;vel por voc&ecirc; em sua casa?";
+      vOpc[11][0] = "M&atilde;e";
+      vOpc[11][1] = "Pai";
+      vOpc[11][2] = "Av&oacute;";
+      vOpc[11][3] = "Av&ocirc;";
+      vOpc[11][4] = "Madrasta ou companheira de seu respons&aacute;vel";
+      vOpc[11][5] = "Padrasto ou companheiro de seu respons&aacute;vel";
+      vOpc[11][6] = "Irm&atilde;os";
+      vOpc[11][7] = "Outros (por exemplo: primos, tios...)";
+
+      vInd[119]  = [7, 16, 12]; vPrg[119] = "119. Qual &eacute; a atividade dessa pessoa (respons&aacute;vel)?";
+      vOpc[12][0] = "Trabalha fora de casa o dia todo";
+      vOpc[12][1] = "Trabalha fora de casa meio per&iacute;odo";
+      vOpc[12][2] = "Trabalha em casa com atividades remuneradas (recebe pagamentos)";
+      vOpc[12][3] = "Trabalha somente nas tarefas de casa";
+      vOpc[12][4] = "Desempregado";
+      vOpc[12][5] = "Aposentado";
+
+      vInd[120]  = [7, 16, 13]; vPrg[120] = "120. At&eacute; qual n&iacute;vel de estudos voc&ecirc; pretende concluir no futuro?";
+      vOpc[13][0] = "Ensino fundamental";
+      vOpc[13][1] = "Ensino m&eacute;dio";
+      vOpc[13][2] = "Ensino profissionalizante (t&eacute;cnico)";
+      vOpc[13][3] = "Faculdade";
+      vOpc[13][4] = "P&oacute;s-gradua&ccedil;&atilde;o";
+
+      vInd[121]  = [7, 16, 14]; vPrg[121] = "121. Voc&ecirc; j&aacute; foi reprovado?";
+      vOpc[14][0] = "Nunca";
+      vOpc[14][1] = "Uma vez";
+      vOpc[14][2] = "Duas vezes ou mais";
+
+      vInd[122]  = [7, 16, 15]; vPrg[122] = "122. Em rela&ccedil;&atilde;o aos seus estudos, como voc&ecirc; acredita estar:";
+      vOpc[15][0] = "Muito bem";
+      vOpc[15][1] = "Bem";
+      vOpc[15][2] = "Nem t&atilde;o bem, mas nem t&atilde;o mal";
+      vOpc[15][3] = "Mal";
+
+      vInd[123]  = [7, 16, 16]; vPrg[123] = "123. Quantos bons amigos ou amigas voc&ecirc; tem na escola?";
+      vOpc[16][0] = "Nenhum";
+      vOpc[16][1] = "1";
+      vOpc[16][2] = "2 ou 3";
+      vOpc[16][3] = "4 ou mais.";
+
+      var Resp = [];
+      for (Ind = 0; Ind <= 123; Ind++) {
+          Resp[Ind] = 0;
+      }
+      Resp[109] = "";
+      Resp[110] = "";
+      var Resp2 = [];
+      for (Ind = 0; Ind <= 9; Ind++) {
+          Resp2[Ind] = 0;
+      }
+      var Resp3 = [];
+      for (Ind = 0; Ind <= 7; Ind++) {
+          Resp3[Ind] = 0;
+      }
+
+    var Escola = [];
+    var Turma = [];
+
+    Escola[1] = '01'; Turma[1] = '1ªN01 - EM - 1ª série, ENSINO MÉDIO - NOITE';
+    Escola[2] = '01'; Turma[2] = '3ªN01- EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[3] = '01'; Turma[3] = '2ªM01- EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[4] = '02'; Turma[4] = '2ª V01-EM - 2ª série, ENSINO MÉDIO - TARDE';
+    Escola[5] = '02'; Turma[5] = '2ª M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[6] = '03'; Turma[6] = '2ª M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[7] = '03'; Turma[7] = '2ª M02-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[8] = '03'; Turma[8] = '3ª M01-EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[9] = '04'; Turma[9] = '1ªV02-EM - 1ª série, ENSINO MÉDIO - TARDE';
+    Escola[10] = '04'; Turma[10] = '2ªV01-EM - 2ª série, ENSINO MÉDIO - TARDE';
+    Escola[11] = '05'; Turma[11] = '1ª M02-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[12] = '05'; Turma[12] = '2ªM2EMIRH - 2ºANO série, ENSINO MÉDIO INTEGRADO - MANHA';
+    Escola[13] = '06'; Turma[13] = '1ª N01-EM - 1ª série, ENSINO MÉDIO - NOITE';
+    Escola[14] = '06'; Turma[14] = '3ª N01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[15] = '07'; Turma[15] = '2ªM02-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[16] = '07'; Turma[16] = '3ªN01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[17] = '08'; Turma[17] = '2ªV1EMIMEI - 2ºANO série, ENSINO MÉDIO INTEGRADO - TARDE';
+    Escola[18] = '08'; Turma[18] = '1ªV1EMIMEI - 1ºANO série, ENSINO MÉDIO INTEGRADO - TARDE';
+    Escola[19] = '08'; Turma[19] = '3ª N01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[20] = '08'; Turma[20] = '2ª N01-EM - 2ª série, ENSINO MÉDIO - NOITE';
+    Escola[21] = '09'; Turma[21] = '1ª N01-EM - 1ª série, ENSINO MÉDIO - NOITE';
+    Escola[22] = '09'; Turma[22] = '3ª M01-EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[23] = '09'; Turma[23] = '1ª V01-EM - 1ª série, ENSINO MÉDIO - TARDE';
+    Escola[24] = '10'; Turma[24] = '2ª M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[25] = '10'; Turma[25] = '3ª N01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[26] = '10'; Turma[26] = '1ª M01-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[27] = '11'; Turma[27] = '3ªN01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[28] = '11'; Turma[28] = '2ªM02-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[29] = '11'; Turma[29] = '3ªM01-EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[30] = '12'; Turma[30] = '3ª N02-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[31] = '12'; Turma[31] = '1ªM1EMIINF - 1ºANO série, ENSINO MÉDIO INTEGRADO - MANHA';
+    Escola[32] = '13'; Turma[32] = '2ª M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[33] = '13'; Turma[33] = '1ª M02-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[34] = '14'; Turma[34] = '2ªM02-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[35] = '14'; Turma[35] = '3ªV01-EM - 3ª série, ENSINO MÉDIO - TARDE';
+    Escola[36] = '14'; Turma[36] = '1ªM03-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[37] = '15'; Turma[37] = '2ª N01-EM - 2ª série, ENSINO MÉDIO - NOITE';
+    Escola[38] = '15'; Turma[38] = '3ª M01-EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[39] = '15'; Turma[39] = '2ª M02-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[40] = '16'; Turma[40] = '1ª M05-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[41] = '16'; Turma[41] = '1ª M03-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[42] = '17'; Turma[42] = '1ª M03-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[43] = '17'; Turma[43] = '1ª M02-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[44] = '18'; Turma[44] = '1ªM03-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[45] = '18'; Turma[45] = '1ªM01-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[46] = '19'; Turma[46] = '1ª M07-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[47] = '19'; Turma[47] = '2ª M03-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[48] = '19'; Turma[48] = ' 2ª M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[49] = '20'; Turma[49] = '1ª N01-EM - 1ª série, ENSINO MÉDIO - NOITE';
+    Escola[50] = '20'; Turma[50] = '1ª M01-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[51] = '21'; Turma[51] = '3ªM01-EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[52] = '21'; Turma[52] = '2ªM04-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[53] = '21'; Turma[53] = '1ªM02-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[54] = '22'; Turma[54] = '3ª N02-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[55] = '22'; Turma[55] = '1ª M01-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[56] = '22'; Turma[56] = '2ª M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[57] = '23'; Turma[57] = '1ªV01-EM - 1ª série, ENSINO MÉDIO - TARDE';
+    Escola[58] = '23'; Turma[58] = '3ªV02-EM - 3ª série, ENSINO MÉDIO - TARDE';
+    Escola[59] = '24'; Turma[59] = '1ª M03-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[60] = '24'; Turma[60] = '2ª M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[61] = '25'; Turma[61] = '2ª M11-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[62] = '25'; Turma[62] = '2ª M15-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[63] = '26'; Turma[63] = '1ª V01-EM - 1ª série, ENSINO MÉDIO - TARDE';
+    Escola[64] = '26'; Turma[64] = '3ª N03-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[65] = '26'; Turma[65] = '3ª V01-EM - 3ª série, ENSINO MÉDIO - TARDE';
+    Escola[66] = '27'; Turma[66] = '1ª N 01 - 1ª série, ENSINO MÉDIO - NOITE';
+    Escola[67] = '27'; Turma[67] = '3ª M 02 - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[68] = '28'; Turma[68] = '3ªN01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[69] = '28'; Turma[69] = '2ªM03-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[70] = '28'; Turma[70] = '3ªV01-EM - 3ª série, ENSINO MÉDIO - TARDE';
+    Escola[71] = '29'; Turma[71] = '3M04 - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[72] = '29'; Turma[72] = '3M01 - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[73] = '30'; Turma[73] = '1ªM02-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[74] = '30'; Turma[74] = '1ªM3-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[75] = '30'; Turma[75] = '2ªM1-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[76] = '31'; Turma[76] = '1ª M01- EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[77] = '31'; Turma[77] = '2ª M01- EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[78] = '32'; Turma[78] = '1ª V09-EM - 1ª série, ENSINO MÉDIO - TARDE';
+    Escola[79] = '32'; Turma[79] = '1ª N13-EM - 1ª série, ENSINO MÉDIO - NOITE';
+    Escola[80] = '33'; Turma[80] = '2ª M04-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[81] = '33'; Turma[81] = '2ª V02-EM - 2ª série, ENSINO MÉDIO - TARDE';
+    Escola[82] = '34'; Turma[82] = '1ª M04-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[83] = '34'; Turma[83] = '2ª M02-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[84] = '35'; Turma[84] = '2ª M03-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[85] = '35'; Turma[85] = '1ª M05-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[86] = '35'; Turma[86] = '3ª V01-EM - 3ª série, ENSINO MÉDIO - TARDE';
+    Escola[87] = '36'; Turma[87] = '1ª V1EMIMA - 1ºANO série, ENSINO MÉDIO INTEGRADO - TARDE';
+    Escola[88] = '36'; Turma[88] = '2ª M1EMIRH - 2ºANO série, ENSINO MÉDIO INTEGRADO - MANHA';
+    Escola[89] = '36'; Turma[89] = '3ª N01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[90] = '37'; Turma[90] = '4ºN01-EMI - 4ºANO série, ENSINO MÉDIO INTEGRADO - NOITE';
+    Escola[91] = '37'; Turma[91] = '3ºV01-EM - 3ª série, ENSINO MÉDIO - TARDE';
+    Escola[92] = '37'; Turma[92] = '1ºM01-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[93] = '37'; Turma[93] = '3ªN01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[94] = '38'; Turma[94] = '1ª N01 EM - 1ª série, ENSINO MÉDIO - NOITE';
+    Escola[95] = '38'; Turma[95] = '3ª M01 EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[96] = '38'; Turma[96] = '1ª M01 EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[97] = '39'; Turma[97] = '2ª N02-EM - 2ª série, ENSINO MÉDIO - NOITE';
+    Escola[98] = '39'; Turma[98] = '1ªM02-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[99] = '40'; Turma[99] = '2ºM01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[100] = '40'; Turma[100] = '2ºM2EMIINF - 2ºANO série, ENSINO MÉDIO INTEGRADO - MANHA';
+    Escola[101] = '40'; Turma[101] = '3ºN03-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[102] = '40'; Turma[102] = '3ºM01-EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[103] = '41'; Turma[103] = '1º M01-EMI - 1ºANO série, ENSINO MÉDIO INTEGRADO - MANHA';
+    Escola[104] = '41'; Turma[104] = '3º N04-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[105] = '42'; Turma[105] = '1ºN03-EM - 1ª série, ENSINO MÉDIO - NOITE';
+    Escola[106] = '42'; Turma[106] = '3ºM01-EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[107] = '42'; Turma[107] = '3ºN02-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[108] = '42'; Turma[108] = '2ºN02-EM - 2ª série, ENSINO MÉDIO - NOITE';
+    Escola[109] = '43'; Turma[109] = '1ª N01-EM - 1ª série, ENSINO MÉDIO - NOITE';
+    Escola[110] = '43'; Turma[110] = '1ª V01-EM - 1ª série, ENSINO MÉDIO - TARDE';
+    Escola[111] = '43'; Turma[111] = '3ª M02-EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[112] = '43'; Turma[112] = '2ª V01-EM - 2ª série, ENSINO MÉDIO - TARDE';
+    Escola[113] = '44'; Turma[113] = '2ºM1EMILOG - 2ºANO série, ENSINO MÉDIO INTEGRADO - MANHA';
+    Escola[114] = '44'; Turma[114] = '3ºM1EMILOG - 3ºANO série, ENSINO MÉDIO INTEGRADO - MANHA';
+    Escola[115] = '44'; Turma[115] = '2º M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[116] = '44'; Turma[116] = '2º N01-EM - 2ª série, ENSINO MÉDIO - NOITE';
+    Escola[117] = '45'; Turma[117] = '3ª N01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[118] = '45'; Turma[118] = '2ª N01-EM - 2ª série, ENSINO MÉDIO - NOITE';
+    Escola[119] = '45'; Turma[119] = '2ª M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[120] = '46'; Turma[120] = '3ª M01-EM - 3ª série, ENSINO MÉDIO - MANHA';
+    Escola[121] = '46'; Turma[121] = '1ª M04-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[122] = '46'; Turma[122] = '1ª M03-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[123] = '47'; Turma[123] = '2ª M01-EM - 2ª série, ENSINO MÉDIO - MANHA';
+    Escola[124] = '47'; Turma[124] = '3ª N01-EM - 3ª série, ENSINO MÉDIO - NOITE';
+    Escola[125] = '48'; Turma[125] = '1ª M01-EM - 1ª série, ENSINO MÉDIO - MANHA';
+    Escola[126] = '48'; Turma[126] = '1ª N02-EM - 1ª série, ENSINO MÉDIO - NOITE';
+
+      var GuardaEmail  = ""; 
+      var GuardaEscola = "";
+      var GuardaTurma  = "";
+
+      function Guarda(XResp) {
+          if (XResp == "A") {
+            obj = document.getElementById("nmACEITO");
+            document.getElementById("btPrx").disabled = !obj.checked;
+          } else {
+            Resp[PergAtual - 5] = XResp;
+            document.getElementById("btPrx").disabled = false;
+            if (flgTp2) {
+                Resp2[NPg2] = XResp;
+            }
+          }
+      }
+
+      function GuardaX(XInd, Max) {
+          obj = document.getElementById("Perg" + XInd.toString());
+          Resp3[XInd] = obj.checked;
+
+          document.getElementById("btPrx").disabled = true;
+          for (i=1; i<=Max; i++) {
+              obj = document.getElementById("Perg" + i.toString());
+              if (obj.checked) document.getElementById("btPrx").disabled = false;
+          }
+      }
+
+      function GuardaTxt() {
+          document.getElementById("btPrx").disabled = true;
+          var GTxt = "";
+
+          obj = document.getElementById("PergTxt");
+          GTxt = obj.value;
+          Resp[PergAtual - 5] = GTxt.trim();
+
+          if (GTxt.trim() != "") {
+              document.getElementById("btPrx").disabled = false;
+          }
+      }
+
+      function sel_turma() {
+          var obE = document.getElementById("nmESCOLA");
+          var obj = document.getElementById("nmTURMA");
+
+          if (obE.value != "0" && obj.value != "0") {
+              document.getElementById("btPrx").disabled = false;
+          } else
+              document.getElementById("btPrx").disabled = true;
+      }
+
+      function carrega_turmas() {
+          var obE = document.getElementById("nmESCOLA");
+          var obj = document.getElementById("nmTURMA");
+          var option = document.createElement("option");
+
+          var selText = new Array();
+          var selValues = new Array();
+          
+          if (obE != null) {
+              for (i=1; obj.length > 0;i=1) {
+                   obj.remove(0);
+              }
+
+              selText[0]   = "Selecionar Turma";
+              selValues[0] = "0";
+
+              var j = 0;
+              for (i=1; i <= 126; i++) {
+                  if (Escola[i] == obE.value) {
+                      j++;
+                      selValues[j] = j;
+                      selText[j] = Turma[i];
+                  }
+              }
+              Tot = j;
+
+              for(i=0; i<=Tot; i++) {
+                  var newOpt = new Option(selText[i], selValues[i]);
+                  obj.options[i] = newOpt;
+              }                 
+              document.getElementById("btPrx").disabled = true;
+          }
+      }
+
+      function monta_perg(XNPg, XDir) {
+          if (XNPg == 2 && XDir == ">") {
+              obj = document.getElementById("nmSENHA");
+              if (obj != null) {
+                  if (obj.value != '1234') {
+                      alert("Senha inválida!");
+                      XNPg = 1;
+                  }
+              }
+          }
+          if (XNPg == 119 && XDir == ">") {
+              if (Resp[113] == 2) {
+                  XNPg = 120;
+              }
+          }
+          if (XNPg == 119 && XDir == "<") {
+              if (Resp[113] == 2) {
+                  XNPg = 118;
+              }
+          }
+
+          var Txt = "";
+          var NPg = XNPg - 5;
+
+          obj = document.getElementById("nmEMAIL");
+          if (obj != null) {
+              GuardaEmail = obj.value;
+          }
+          obj = document.getElementById("nmESCOLA");
+          if (obj != null) {
+              GuardaEscola = obj.value;
+          }
+          obj = document.getElementById("nmTURMA");
+          if (obj != null) {
+              GuardaTurma = obj.value;
+          }
+
+          PergAtual = XNPg;
+
+          if (XNPg == 1) {
+              document.getElementById("btPrx").disabled = false;
+
+              Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
+              Txt += "      <B>SENHA DE ACESSO</B>";
+              Txt += "    </div>";
+              Txt += "    <div class='panel-body'>";
+              Txt += "              <TABLE width='100%'>";
+              Txt += "                <TR><TD colspan='3'>";
+              Txt += "                  <div class='form-group' style='margin-right:10px;'>";
+              Txt += "                    Entre com a senha de acesso ao aplicativo<BR><BR>";
+              Txt += "                      <input name='nmSENHA' id='nmSENHA' type='text' class='form-control' autofocus>";
+              Txt += "                  </div>";
+              Txt += "                </TD></TR>";
+              Txt += "              </TABLE>";
+              Txt += "    </div>";
+
+              var DivHab = document.getElementById("DivPerg");
+              DivHab.innerHTML=Txt;
+          } else 
+          if (XNPg == 2) {
+              document.getElementById("btPrx").disabled = true;
+
+              Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
+              Txt += "      <B>TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (resumido)</B> Estudantes";
+              Txt += "    </div>";
+              Txt += "    <div class='panel-body'>";
+              Txt += "              <TABLE width='100%'>";
+              Txt += "                <TR><TD colspan='3'>";
+              Txt += "                  <div class='form-group' style='margin-right:10px;'>";
+              Txt += "                    <B>Em busca de caminhos que promovam a conviv&ecirc;ncia respeitosa em sala de aula todos os dias</B><BR>";
+              Txt += "                    Telma Vinha - Faculdade de Educa&ccedil;&atilde;o - UNICAMP<BR>";
+              Txt += "                    Aprovado pelo Comit&ecirc; de &Eacute;tica em Pesquisa da Unicamp - n&ordm; do CAAE: 32973114.2.0000.5404<BR><BR>";
+              Txt += "                    Voc&ecirc; est&aacute; sendo convidado a participar como volunt&aacute;rio deste estudo que tem como objetivos construir, aplicar e validar question&aacute;rios";
+              Txt += "                    para avaliar o clima escolar.<BR>";
+              Txt += "                    Os participantes desta pesquisa ser&atilde;o gestores, professores e alunos do 7&ordm; ano em diante de escolas p&uacute;blicas e particulares.<BR>";
+              Txt += "                    Voc&ecirc; est&aacute; sendo convidado a preencher o question&aacute;rio a seguir que avalia o clima escolar. A estimativa de tempo necess&aacute;ria para";
+              Txt += "                    respond&ecirc;-lo &eacute; de aproximadamente 40 (quarenta) minutos.<BR>";
+              Txt += "                    A participa&ccedil;&atilde;o nesta pesquisa n&atilde;o oferece riscos ou benef&iacute;cios diretos, mas esperamos que este estudo traga informa&ccedil;&otilde;es";
+              Txt += "                    importantes sobre as quest&otilde;es relativas ao clima escolar, de forma que possa contribuir para a educa&ccedil;&atilde;o de todos.<BR>";
+              Txt += "                    Voc&ecirc; tem a garantia de que a sua identidade ser&aacute; mantida em sigilo. Os dados desta pesquisa poder&atilde;o ser utilizados apenas pela";
+              Txt += "                    pr&oacute;pria unidade escolar e pela equipe de pesquisadores, para fins de avalia&ccedil;&atilde;o do clima escolar, produ&ccedil;&otilde;es acad&ecirc;micas e de";
+              Txt += "                    valida&ccedil;&atilde;o dos instrumentos. Na divulga&ccedil;&atilde;o dos resultados deste estudo, o nome de nenhuma pessoa participante ser&aacute; citado.<BR><BR>";
+              Txt += "                    Ap&oacute;s ter sido esclarecido sobre a natureza da pesquisa, seus objetivos, m&eacute;todos, benef&iacute;cios previstos e";
+              Txt += "                    potenciais riscos, eu voluntariamente:<BR><BR>";
+
+              Txt += "                      <label><input type='checkbox' name='nmACEITO' id='nmACEITO' onClick='Guarda(\"A\");' >&nbsp;ACEITO participar da pesquisa.</label>";
+
+              Txt += "                  </div>";
+              Txt += "                </TD></TR>";
+              Txt += "              </TABLE>";
+              Txt += "    </div>";
+
+              var DivHab = document.getElementById("DivPerg");
+              DivHab.innerHTML=Txt;
+          } else 
+          if (XNPg == 3) {
+              document.getElementById("btPrx").disabled = false;
+
+              Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
+              Txt += "      <B>TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (resumido)</B> Estudantes";
+              Txt += "    </div>";
+              Txt += "    <div class='panel-body'>";
+              Txt += "              <TABLE width='100%'>";
+              Txt += "                <TR><TD colspan='3'>";
+              Txt += "                  <div class='form-group' style='margin-right:10px;'>";
+              Txt += "                    &Eacute; um direito seu ter uma via do Termo de Consentimento na &iacute;ntegra. Caso queira receb&ecirc;-la, informe seu";
+              Txt += "                    e.mail abaixo:<BR>";
+              Txt += "                      <input name='nmEMAIL' id='nmEMAIL' type='text' class='form-control' autofocus>";
+              Txt += "                  </div>";
+              Txt += "                </TD></TR>";
+              Txt += "              </TABLE>";
+              Txt += "    </div>";
+
+              var DivHab = document.getElementById("DivPerg");
+              DivHab.innerHTML=Txt;
+
+              obj = document.getElementById("nmEMAIL");
+              obj.value = GuardaEmail;
+          } else 
+          if (XNPg == 4) {
+              document.getElementById("btPrx").disabled = false;
+
+              Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
+              Txt += "      <B>ALUNOS</B>";
+              Txt += "    </div>";
+              Txt += "    <div class='panel-body'>";
+              Txt += "              <TABLE width='100%'>";
+              Txt += "                <TR><TD colspan='3'>";
+              Txt += "                  <div class='form-group' style='margin-right:10px;'>";
+              Txt += "                    <B>Nosso objetivo &eacute; saber o que voc&ecirc; pensa sobre a sua escola.<BR>";
+              Txt += "                    As informa&ccedil;&otilde;es desta pesquisa v&atilde;o nos ajudar a melhorar as rela&ccedil;&otilde;es interpessoais, as condi&ccedil;&otilde;es";
+              Txt += "                    de aprendizagem e o ambiente geral da escola.<BR>";
+              Txt += "                    Esse &eacute; um question&aacute;rio direcionado aos alunos desta institui&ccedil;&atilde;o educacional.<BR>";
+              Txt += "                    Todas as respostas ser&atilde;o tratadas de forma estritamente CONFIDENCIAL.<BR>";
+              Txt += "                    Esse question&aacute;rio &eacute; an&ocirc;nimo, secreto e individual, por isso lhe pedimos que o responda com";
+              Txt += "                    sinceridade e dizendo exatamente o que voc&ecirc; pensa ou sente em rela&ccedil;&atilde;o ao que tem vivenciado";
+              Txt += "                    NOS &Uacute;LTIMOS 3 MESES.<BR>";
+              Txt += "                    Respond&ecirc;-lo &eacute; importante porque possibilitar&aacute; conhecer o que est&aacute; indo bem e o que necessita ser";
+              Txt += "                    melhorado quanto &agrave; conviv&ecirc;ncia escolar.<BR>";
+              Txt += "                    Por favor, leia cada pergunta atentamente e assinale a(s) alternativa(s) respondendo o que tem";
+              Txt += "                    acontecido em sua escola. Suas respostas ser&atilde;o agrupadas com as dos demais alunos para";
+              Txt += "                    podermos conhecer como todos percebem o clima da escola.<BR>";
+              Txt += "                    Agradecemos muito a sua colabora&ccedil;&atilde;o!<BR>";
+              Txt += "                  </div>";
+              Txt += "                </TD></TR>";
+              Txt += "              </TABLE>";
+              Txt += "    </div>";
+
+              var DivHab = document.getElementById("DivPerg");
+              DivHab.innerHTML=Txt;
+          } else 
+          if (XNPg == 5) {
+              document.getElementById("btPrx").disabled = true;
+
+              Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
+              Txt += "      <B>INFORMA&Ccedil;&Otilde;ES GERAIS</B>";
+              Txt += "    </div>";
+              Txt += "    <div class='panel-body'>";
+              Txt += "              <TABLE width='100%'>";
+              Txt += "                <TR><TD colspan='3'>";
+
+              Txt = Txt + "                  <div class='form-group' style='margin-right:10px;'>";
+              Txt = Txt + "                    <B>Escola:</B><BR>";
+              Txt = Txt + "                    <SELECT name='nmESCOLA' id='nmESCOLA' class='form-control' onchange='carrega_turmas();'>";
+              Txt = Txt + "                        <option selected value='0'>Selecionar Escola  </option>";
+
+              Txt = Txt + "                        <option value='23'>EEEF PROF JOAO ANTUNES DAS DORES </option>";
+              Txt = Txt + "                        <option value='27'>EEEFM AGENOR DE SOUZA LE </option>";
+              Txt = Txt + "                        <option value='36'>EEEFM ALMIRANTE BARROSO </option>";
+              Txt = Txt + "                        <option value='47'>EEEFM ALTO RIO POSSMOSER </option>";
+              Txt = Txt + "                        <option value='03'>EEEFM ANTONIO DOS SANTOS NEVES </option>";
+              Txt = Txt + "                        <option value='25'>EEEFM ARISTOBULO BARBOSA LEAO </option>";
+              Txt = Txt + "                        <option value='16'>EEEFM ATILIO VIVACQUA </option>";
+              Txt = Txt + "                        <option value='11'>EEEFM BANANAL </option>";
+              Txt = Txt + "                        <option value='30'>EEEFM CATHARINA CHEQUER </option>";
+              Txt = Txt + "                        <option value='17'>EEEFM CEL OLIMPIO CUNHA </option>";
+              Txt = Txt + "                        <option value='15'>EEEFM DAVID ROLDI </option>";
+              Txt = Txt + "                        <option value='20'>EEEFM DR JOSE MOYSES </option>";
+              Txt = Txt + "                        <option value='04'>EEEFM ECOPORANGA </option>";
+              Txt = Txt + "                        <option value='48'>EEEFM FIORAVANTE CALIMAN </option>";
+              Txt = Txt + "                        <option value='22'>EEEFM FREDERICO PRETTI </option>";
+              Txt = Txt + "                        <option value='46'>EEEFM GRACA ARANHA </option>";
+              Txt = Txt + "                        <option value='41'>EEEFM HENRIQUE COUTINHO </option>";
+              Txt = Txt + "                        <option value='10'>EEEFM JANUARIO RIBEIRO </option>";
+              Txt = Txt + "                        <option value='07'>EEEFM JOB PIMENTEL </option>";
+              Txt = Txt + "                        <option value='08'>EEEFM JOSE ZAMPROGNO </option>";
+              Txt = Txt + "                        <option value='43'>EEEFM LUIZ JOUFFROY </option>";
+              Txt = Txt + "                        <option value='35'>EEEFM MAJOR ALFREDO PEDRO RABAIOLI </option>";
+              Txt = Txt + "                        <option value='31'>EEEFM MARCILIO DIAS </option>";
+              Txt = Txt + "                        <option value='13'>EEEFM MARITA MOTTA SANTOS </option>";
+              Txt = Txt + "                        <option value='02'>EEEFM MONSENHOR GUILHERME SCHMITZ </option>";
+              Txt = Txt + "                        <option value='24'>EEEFM NOVA CARAPINA </option>";
+              Txt = Txt + "                        <option value='42'>EEEFM P AFONSO BRAZ </option>";
+              Txt = Txt + "                        <option value='39'>EEEFM PEDREIRAS </option>";
+              Txt = Txt + "                        <option value='40'>EEEFM PEDRO DE ALCANTARA GALVEAS </option>";
+              Txt = Txt + "                        <option value='44'>EEEFM PRESIDENTE KENNEDY </option>";
+              Txt = Txt + "                        <option value='21'>EEEFM PROF FILOMENA QUITIBA </option>";
+              Txt = Txt + "                        <option value='28'>EEEFM PROF GERALDO COSTA ALVES </option>";
+              Txt = Txt + "                        <option value='19'>EEEFM PROF MARIA PENEDO </option>";
+              Txt = Txt + "                        <option value='38'>EEEFM PROF PETRONILHA VIDIGAL </option>";
+              Txt = Txt + "                        <option value='05'>EEEFM PROF&ordf; ANTONIETA BANHOS FERNANDES </option>";
+              Txt = Txt + "                        <option value='37'>EEEFM PROFESSOR PEDRO SIMAO </option>";
+              Txt = Txt + "                        <option value='12'>EEEFM SAO GABRIEL DA PALHA </option>";
+              Txt = Txt + "                        <option value='45'>EEEFM SAO LUIS </option>";
+              Txt = Txt + "                        <option value='18'>EEEFM SATURNINO RANGEL MAURO </option>";
+              Txt = Txt + "                        <option value='09'>EEEFM SEBASTIANA GRILO </option>";
+              Txt = Txt + "                        <option value='01'>EEEFM SEBASTIAO COIMBRA ELIZEU    </option>";
+              Txt = Txt + "                        <option value='14'>EEEFM WALLACE CASTELLO DUTRA </option>";
+              Txt = Txt + "                        <option value='26'>EEEFM ZUMBI DOS PALMARES - SERRA </option>";
+              Txt = Txt + "                        <option value='29'>EEEM GODOFREDO SCHNEIDER </option>";
+              Txt = Txt + "                        <option value='34'>EEEM IRMA MARIA HORTA </option>";
+              Txt = Txt + "                        <option value='33'>EEEM MARIO GURGEL </option>";
+              Txt = Txt + "                        <option value='32'>EEEM PROFESSOR AGENOR RORIS </option>";
+              Txt = Txt + "                        <option value='06'>EEEM SANTINA MOROSINI CUPERTINO </option>";
+
+              Txt = Txt + "                    </SELECT>";
+              Txt = Txt + "                  </div>";
+              Txt = Txt + "                  <div class='form-group' style='margin-right:10px;'>";
+              Txt = Txt + "                    <B>Turma:</B><BR>";
+              Txt = Txt + "                    <SELECT name='nmTURMA' id='nmTURMA' class='form-control' onchange='sel_turma();'>";
+              Txt = Txt + "                        <option selected value='0'>Selecionar Turma  </option>";
+              Txt = Txt + "                    </SELECT>";
+              Txt = Txt + "                  </div>";
+              Txt += "                </TD></TR>";
+              Txt += "              </TABLE>";
+              Txt += "    </div>";
+
+              var DivHab = document.getElementById("DivPerg");
+              DivHab.innerHTML=Txt;
+
+              if (GuardaEscola != "") {
+                  obj = document.getElementById("nmESCOLA");
+                  obj.value = GuardaEscola;
+                  carrega_turmas();
+                  if (GuardaEscola != "") {
+                      obj = document.getElementById("nmTURMA");
+                      obj.value = GuardaTurma;
+                      sel_turma();
+                  }
+              }
+          } else 
+          if (NPg == 124) {
+              Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
+              Txt += "      <B> Question&aacute;rio Encerrado </B>";
+              Txt += "    </div>";
+              Txt += "    <div class='panel-body' >";
+              Txt += "              <TABLE width='100%'>";
+              Txt += "                <TR><TD colspan='3'>";
+              Txt += "                  <div class='form-group' style='margin-right:10px;'>";
+              Txt += "                    <BR>Agradecemos muito a sua disposição e cooperação em participar dessa pesquisa.<BR>";
+              Txt += "                    Essas informações serão essenciais para o desenvolvimento de propostas de melhoria";
+              Txt += "                    das relações interpessoais, das condições de aprendizagem e do ambiente geral da escola.<BR><BR><BR>";
+              Txt += "                  </div>";
+              Txt += "                </TD></TR>";
+              Txt += "              </TABLE>";
+              Txt += "    </div>";
+
+              var DivHab = document.getElementById("DivPerg");
+              DivHab.innerHTML=Txt;
+          } else {
+
+          if (flgTp2 && XDir == ">") {
+              NPg2++;
+              if (NPg2 <= 9) {
+                  NPg--;
+                  PergAtual--;
+              } else flgTp2 = false;
+          }
+          if (flgTp2 && XDir == "<") {
+              NPg2--;
+              if (NPg2 >= 1) {
+                  NPg++;
+                  PergAtual++;
+              } else flgTp2 = false;
+          }
+
+          document.getElementById("btPrx").disabled = true;
+
+          NSec = vInd[NPg][0];
+          NObs = vInd[NPg][1];
+          NOpc = vInd[NPg][2];
+
+          Txt += "    <div class='panel-body' style='background-color:gray; background-image: linear-gradient(to bottom,#C3C3C3 30%,#A0A0A0 100%);'>";
+          Txt += "      <B>" + vSec[NSec] + "</B>";
+          Txt += "    </div>";
+          if (NObs % 2 == 1)
+             Txt += "    <div class='panel-body' style='text-align:left; background-image: linear-gradient(white, #FFFF88, white);'>";
+          else 
+             Txt += "    <div class='panel-body' style='text-align:left; background-image: linear-gradient(white, #BBFFFF, white);'>";
+          Txt += "      <B>" + vObs[NObs] + "</B>";
+          Txt += "    </div>";
+          Txt += "    <div class='panel-body' >";
+          Txt += "              <TABLE width='100%'>";
+          Txt += "                <TR><TD colspan='3'>";
+          Txt += "                  <div class='form-group' style='margin-right:10px;'>";
+
+          if (TpPerg[NPg] == 1) {
+              Txt += "                    <B>" + vPrg[NPg] + "</B><BR>";
+              Txt += "                    <DIV style='margin:5px 20px 5px 20px;'>";
+              Txt += "                      <input name='PergTxt' id='PergTxt' type='text' onkeyup='GuardaTxt();' class='form-control' autofocus onKeyDown='utfmt002_formato=\"num\";'>";
+  
+              if (Resp[NPg] != "") { 
+                  document.getElementById("btPrx").disabled = false;
+              }
+
+              Txt += "                    </DIV>";
+
+          } else {
+
+          if (TpPerg[NPg] == 2) {
+              if (!flgTp2) {
+                   if (XDir == ">") {
+                       NPg2 = 1;
+                   } else 
+                       NPg2 = 9;
+              }
+              flgTp2 = true;
+
+              Txt += "                    <B>" + vPrg[NPg] + "</B><BR><BR>";
+              Txt += "                    <B>" + TpPerg2[NPg2] + "</B><BR>";
+              Txt += "                    <DIV style='margin:5px 20px 5px 20px;'>";
+  
+              for (index = 0; index < vOpc[NOpc].length; index++) {
+                  Indr = index + 1;
+                  TIndr = Indr.toString();
+                  TChecked = "";
+                  if (!flgTp2) {
+                      if (Indr == Resp[NPg]) { 
+                          TChecked = " checked "; 
+                          document.getElementById("btPrx").disabled = false;
+                      }
+                  } else {
+                      if (Indr == Resp2[NPg2]) { 
+                          TChecked = " checked "; 
+                          document.getElementById("btPrx").disabled = false;
+                      }
+                  }
+                  Txt += "                      <label><input type='radio' name='Perg' id='Perg" + TIndr + "' " + TChecked + " onClick='Guarda(" + TIndr + ");' >&nbsp;" + vOpc[NOpc][index] + "</label><BR>";
+              }
+
+              Indr = index + 1;
+              TIndr = Indr.toString();
+              if (!flgTp2) {
+                  if (Indr == Resp[NPg]) { 
+                      TChecked = " checked "; 
+                      document.getElementById("btPrx").disabled = false;
+                  }
+              } else {
+                  if (Indr == Resp2[NPg2]) { 
+                      TChecked = " checked "; 
+                      document.getElementById("btPrx").disabled = false;
+                  }
+              }
+
+              Txt += "                    </DIV>";
+
+          } else {
+
+              Txt += "                    <B>" + vPrg[NPg] + "</B><BR>";
+              Txt += "                    <DIV style='margin:5px 20px 5px 20px;'>";
+
+              for (index = 0; index < vOpc[NOpc].length; index++) {
+                  Indr = index + 1;
+                  TIndr = Indr.toString();
+                  TChecked = "";
+                  if (Indr == Resp[NPg]) { 
+                      TChecked = " checked "; 
+                      document.getElementById("btPrx").disabled = false;
+                  }
+                  if (TpPerg[NPg] == 3) 
+                      Txt += "                      <label><input type='checkbox' name='Perg' id='Perg" + TIndr + "' " + TChecked + " onClick='GuardaX(" + TIndr + "," + vOpc[NOpc].length.toString() + ");' >&nbsp;" + vOpc[NOpc][index] + "</label><BR>";
+                  else 
+                      Txt += "                      <label><input type='radio' name='Perg' id='Perg" + TIndr + "' " + TChecked + " onClick='Guarda(" + TIndr + ");' >&nbsp;" + vOpc[NOpc][index] + "</label><BR>";
+              }
+
+              Indr = index + 1;
+              TIndr = Indr.toString();
+              if (Indr == Resp[NPg]) { 
+                  TChecked = " checked "; 
+                  document.getElementById("btPrx").disabled = false;
+              }
+
+              Txt += "                    </DIV>";
+          } }
+
+          Txt += "                  </div>";
+          Txt += "                </TD></TR>";
+          Txt += "              </TABLE>";
+          Txt += "    </div>";
+
+          var DivHab = document.getElementById("DivPerg");
+          DivHab.innerHTML=Txt;
+
+          if (TpPerg[NPg] == 1) {
+              obj = document.getElementById("PergTxt");
+              obj.value = Resp[NPg];
+          }
+          if (TpPerg[NPg] == 3) {
+              for (i=1; i<=vOpc[NOpc].length; i++) {
+                  obj = document.getElementById("Perg" + i.toString());
+                  obj.checked = Resp3[i];
+                  if (obj.checked) document.getElementById("btPrx").disabled = false;
+              }
+          }
+
+      }
+
+          if (NPg == 124) {
+              document.getElementById("btAnt").style.display = "none";
+              document.getElementById("btPrx").style.display = "none";
+              document.getElementById("btEnc").style.display = "inline";
+          }
+
+          if (XNPg == 1) {
+              document.getElementById("btAnt").disabled = true;
+          } else {
+              document.getElementById("btAnt").disabled = false;
+          }         
+
+      }
+
+      function Branco(opcID) {
+          obj = document.getElementById(opcID);
+          obj.checked = true;
+          obj.checked = false;
+      }
+
+//          var DivAut = document.getElementById("DivAut");
+//          DivAut.innerHTML=Txt;
+  
+          
+      function Entrada() {
+          document.onkeydown = utfmt002_keyDown;                                                           
+          monta_perg(128);
+      }
+
+      function jsExibe(Tipo) {
+          var Div01 = document.getElementById("DivLong01");
+          var Div02 = document.getElementById("DivLong02");
+          var Div03 = document.getElementById("DivLong03");
+
+          if (Tipo == 0) Txt = "none";
+          if (Tipo == 1) Txt = "block";
+
+          Div01.style.display = Txt;
+          Div02.style.display = Txt;
+          Div03.style.display = Txt;
+      }
+
+      function Limpa() {
+          objF = document.getElementById("CLI_form");
+
+          for (i = 0; i < objF.length; i++) {
+              objE = objF.elements[i];
+              if (objE.disabled == false) {
+                  if (objE.type  == "radio")      objE.checked = false;
+                  if (objE.type  == "text")       objE.value = "";
+                  if (objE.type  == "checkbox")   objE.checked = false;
+                  if (objE.type  == "select-one") objE.value = "";
+              }
+          }
+      }
+
+      function LeBanco() {
+        obj = document.getElementById("CLI_form");
+        var postdata = "";
+        postdata = postdata + "Tabela=CLI_ALUNO";
+        postdata = postdata + "&ChaveNome=ID_ARTIGO";
+        postdata = postdata + "&ChaveValor=123";
+
+        var xmlhttp1 = new XMLHttpRequest();
+        xmlhttp1.beforeSend = function(jqXHR) {
+            jqXHR.overrideMimeType('text/html;charset=iso-8859-1');
+        }
+        xmlhttp1.onreadystatechange = function() {
+            if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
+                var retorno  = [];
+                var parmitem = [];
+
+                retorno = xmlhttp1.responseText.split('&');
+//alert(retorno);
+
+                objX = document.getElementById("CLI_form");
+                for (var i = 0; i < retorno.length; i++)
+                {
+                    parmitem = retorno[i].split("=");
+
+                    if (parmitem[0] == "xxQTDAUT") {
+                        qtdAut = parseInt(parmitem[1]);
+                        //if (qtdAut == 0) qtdAut = 1;
+                        monta_aut();          
+                    }
+                    if (parmitem[0] == "xxQTDCOL") {
+                        qtdCol = parseInt(parmitem[1]);
+                        if (qtdCol == 0) qtdCol = 1;
+                        monta_col();          
+                    }
+                    if (parmitem[0] == "xxQTDHAB") {
+                        qtdHab = parseInt(parmitem[1]);
+                        if (qtdHab == 0) qtdHab = 1;
+                        monta_hab();          
+                    }
+                    if (parmitem[0] == "xxQTDDES") {
+                        qtdInd = parseInt(parmitem[1]);
+                        if (qtdInd == 0) qtdInd = 1;
+                        monta_ind();          
+                    }
+                    if (parmitem[0] == "xxQTDMOD") {
+                        qtdMod = parseInt(parmitem[1]);
+                        if (qtdMod == 0) qtdMod = 1;
+                        monta_mod();          
+                    }
+
+                    obj = document.getElementById("nm" + parmitem[0]);
+                    if (obj == null) obj = document.getElementById("nm" + parmitem[0] + "1");
+                    if (obj != null) {
+                        if (obj.type == "radio") {
+                            radios = objX.elements[obj.name];
+                            if (!isNaN(parseInt(parmitem[1]))) {
+                                if (parmitem[1] >= 1) {
+                                    radios[parseInt(parmitem[1]) - 1].checked = true;
+                                }
+                            }
+                        }
+                        else {
+                            if (obj.type == "checkbox") {                                
+                                obj.checked = (parmitem[1] == "1" ? true : false); 
+                            } 
+                            else {
+                            //if (obj.type == "text") 
+                                obj.value = parmitem[1];
+                            }
+                        }
+                    }
+
+                    obj = document.getElementById("nmESTR_TEMP1");
+                    if (obj.checked) jsExibe(0);
+                    obj = document.getElementById("nmESTR_TEMP2");
+                    if (obj.checked) jsExibe(1);
+
+                    guarda_mod_lebanco(qtdMod);
+                }
+//                obj     = document.getElementById("nmSIT_CADASTRAL");               
+//                objDivN = document.getElementById("DivBtNConf");               
+//                objDivC = document.getElementById("DivBtConf");               
+//                if (obj.value == "3") {
+//                    objDivN.style.display = "inline";
+//                    objDivC.style.display = "none";
+//                }
+//                else {
+//                    objDivN.style.display = "none";
+//                    objDivC.style.display = "inline";
+//                }
+            }
+        }
+//alert(postdata);
+
+        xmlhttp1.open("POST", "LeBanco.asp", true);
+        xmlhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=ISO-8859-1");
+        xmlhttp1.setRequestHeader('encoding','ISO-8859-1');
+        xmlhttp1.setRequestHeader("Content-length", postdata.length);
+        xmlhttp1.send(postdata);
+      }
+
+      function GravaSit(GSit) {
+        obj = document.getElementById("CLI_form");
+        var postdata = "";
+        postdata = postdata + "Tabela=xALUNO";
+        postdata = postdata + "&ChaveNome=IDENTIFICADOR_A";
+        postdata = postdata + "&ChaveValor=123";
+        postdata = postdata + "&User=123";
+        postdata = postdata + "&nmSIT_CADASTRAL=" + GSit;
+
+//alert(postdata);
+
+        var xmlhttp2 = new XMLHttpRequest();
+        xmlhttp2.onreadystatechange = function() {
+            if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
+                var retorno  = [];
+                var parmitem = [];
+
+                retorno = xmlhttp2.responseText.split('&');
+
+                objDivN = document.getElementById("DivBtNConf");               
+                objDivC = document.getElementById("DivBtConf");               
+                if (GSit == "3") {
+                    objDivN.style.display = "inline";
+                    objDivC.style.display = "none";
+                }
+                else {
+                    objDivN.style.display = "none";
+                    objDivC.style.display = "inline";
+                }
+//alert(retorno);
+            }
+        }
+        xmlhttp2.open("POST", "GravaBanco.asp", true);
+        xmlhttp2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp2.setRequestHeader("Content-length", postdata.length);
+        xmlhttp2.send(postdata);
+      }
+
+      function GravaBanco() {
+        obj = document.getElementById("nmNOME_ALUNO");
+        obj.value = '123';
+
+        obj = document.getElementById("CLI_form");
+        var postdata = "";
+        postdata = postdata + "Tabela=CLI_ALUNO";
+        postdata = postdata + "&ChaveNome=ID_ARTIGO";
+        postdata = postdata + "&ChaveValor=" + NumArtigo;
+        postdata = postdata + "&User=123";
+
+        for (var i = 0; i < obj.elements.length; i++)
+        {
+            if (obj.elements[i].name.substr(0, 2) == "nm" && obj.elements[i].name.substr(0, 3) != "nm0" && obj.elements[i].name.substr(0, 3) != "nm1") {
+                if (i == 0 || (i > 0 && obj.elements[i].name != obj.elements[i-1].name)) {
+                    campo = obj.elements[i];
+                    if (campo != null) { 
+                        if (campo.type == "radio") {
+                            radios = obj.elements[campo.name];
+                            val = 0;
+                            for (var j=0, len=radios.length; j<len; j++) {
+                                if ( radios[j].checked ) { // radio checked?
+                                    val = j + 1; // if so, hold its value in val
+                                    break; // and break out of for loop
+                                }
+                            }
+                            postdata = postdata + "&" + campo.name + "=" + val; 
+                        }
+                        else {
+                            if (campo.type == "checkbox") {                                
+                                postdata = postdata + "&" + campo.name + "=" + (campo.checked ? 1 : 0); 
+                            } 
+                            else {
+                                postdata = postdata + "&" + campo.name + "=" + rawurlencode(campo.value); 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+//alert(postdata);
+
+        var xmlhttp3 = new XMLHttpRequest();
+        xmlhttp3.beforeSend = function(jqXHR) {
+            jqXHR.overrideMimeType('text/html;charset=iso-8859-1');
+        }
+        xmlhttp3.onreadystatechange = function() {
+            if (xmlhttp3.readyState == 4 && xmlhttp3.status == 200) {
+                var retorno  = [];
+                var parmitem = [];
+
+                retorno = xmlhttp3.responseText.split('&');
+                parmitem = xmlhttp3.responseText.split(';');
+//alert(retorno);
+                for (pp in parmitem) {
+//alert(parmitem[pp]);
+                    if (parmitem[pp].substr(0, 3) == "ID=") {
+                        NumArtigo = parmitem[pp].substr(3);
+//alert("ID Artigo = " + parmitem[pp] + ", " + NumArtigo);
+                    }
+                    if (parmitem[pp].substr(0, 3) == "RC=") {
+                        if (parmitem[pp].substr(3, 1) == "0") {
+                            GravaItens();
+                            alert('Artigo salvo com sucesso.');
+                        }
+                        else {
+                            alert('Erro ao tentar salvar o question&aacute;rio. ' + parmitem[pp]);
+                        }
+                    }
+                }
+
+// tratar sucesso ou erro ao salvar 
+// gravar demais regsitros se o registro pai foi bem sucedido.
+
+
+            }
+        }
+        xmlhttp3.open("POST", "GravaBanco.asp", false);
+        xmlhttp3.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=ISO-8859-1");
+        xmlhttp3.setRequestHeader('encoding','ISO-8859-1');
+        xmlhttp3.setRequestHeader("Content-length", postdata.length);
+        xmlhttp3.send(postdata);
+      }
+
+function rawurlencode(str) {
+
+  str = (str + '')
+    .toString();
+
+  return str
+    .replace(/Ã/g, '%C3')
+    .replace(/ /g, '%20')
+    .replace(/!/g, '%21')
+    .replace(/\"/g, '%22')
+    .replace(/#/g, '%23')
+    .replace(/\&/g, '%26')
+    .replace(/\'/g, '%27')
+    .replace(/\(/g, '%28')
+    .replace(/\)/g, '%29')
+    .replace(/\*/g, '%2A')
+    .replace(/\+/g, '%2B')
+    .replace(/,/g, '%2C')
+    .replace(/ã/g, '%E3')
+    .replace(/-/g, '%2D')
+    .replace(/\//g, '%2F')
+    .replace(/:/g, '%3A')
+    .replace(/;/g, '%3B')
+    .replace(/</g, '%3C')
+    .replace(/=/g, '%3D')
+    .replace(/>/g, '%3E')
+    .replace(/@/g, '%40')
+    .replace(/\[/g, '%5B')
+    .replace(/\\/g, '%5C')
+    .replace(/\]/g, '%5D')
+    .replace(/_/g, '%5F')
+    .replace(/`/g, '%60')
+    .replace(/\{/g, '%7B')
+    .replace(/\|/g, '%7C')
+    .replace(/\}/g, '%7D')
+
+    .replace(/~/g, '%7E')
+    .replace(/`/g, '%80')
+    .replace(/‚/g, '%82')
+    .replace(/ƒ/g, '%83')
+    .replace(/„/g, '%84')
+    .replace(/…/g, '%85')
+    .replace(/†/g, '%86')
+    .replace(/‡/g, '%87')
+    .replace(/ˆ/g, '%88')
+    .replace(/‰/g, '%89')
+    .replace(/Š/g, '%8A')
+
+    .replace(/‹/g, '%8B')
+    .replace(/Œ/g, '%8C')
+    .replace(/Ž/g, '%8E')
+    .replace(/‘/g, '%91')
+    .replace(/’/g, '%92')
+    .replace(/“/g, '%93')
+    .replace(/”/g, '%94')
+    .replace(/•/g, '%95')
+    .replace(/–/g, '%96')
+    .replace(/—/g, '%97')
+    .replace(/˜/g, '%98')
+    .replace(/™/g, '%99')
+    .replace(/š/g, '%9A')
+    .replace(/›/g, '%9B')
+    .replace(/œ/g, '%9C')
+    .replace(/ž/g, '%9E')
+    .replace(/Ÿ/g, '%9F')
+    .replace(/¡/g, '%A1')
+    .replace(/¢/g, '%A2')
+    .replace(/£/g, '%A3')
+
+    .replace(/¤/g, '%A4')
+    .replace(/¥/g, '%A5')
+    .replace(/¦/g, '%A6')
+    .replace(/§/g, '%A7')
+    .replace(/¨/g, '%A8')
+    .replace(/©/g, '%A9')
+    .replace(/ª/g, '%AA')
+    .replace(/«/g, '%AB')
+    .replace(/¬/g, '%AC')
+    .replace(/®/g, '%AE')
+    .replace(/¯/g, '%AF')
+    .replace(/°/g, '%B0')
+    .replace(/±/g, '%B1')
+    .replace(/²/g, '%B2')
+    .replace(/³/g, '%B3')
+    .replace(/´/g, '%B4')
+    .replace(/µ/g, '%B5')
+    .replace(/¶/g, '%B6')
+    .replace(/·/g, '%B7')
+    .replace(/¸/g, '%B8')
+    .replace(/¹/g, '%B9')
+    .replace(/º/g, '%BA')
+    .replace(/»/g, '%BB')
+    .replace(/¼/g, '%BC')
+    .replace(/½/g, '%BD')
+    .replace(/¾/g, '%BE')
+    .replace(/¿/g, '%BF')
+    .replace(/À/g, '%C0')
+    .replace(/Á/g, '%C1')
+    .replace(/Â/g, '%C2')
+    .replace(/Ã/g, '%C3')
+    .replace(/Ä/g, '%C4')
+    .replace(/Å/g, '%C5')
+    .replace(/Æ/g, '%C6')
+    .replace(/Ç/g, '%C7')
+    .replace(/È/g, '%C8')
+    .replace(/É/g, '%C9')
+    .replace(/Ê/g, '%CA')
+    .replace(/Ë/g, '%CB')
+    .replace(/Ì/g, '%CC')
+    .replace(/Í/g, '%CD')
+    .replace(/Î/g, '%CE')
+    .replace(/Ï/g, '%CF')
+    .replace(/Ð/g, '%D0')
+    .replace(/Ñ/g, '%D1')
+    .replace(/Ò/g, '%D2')
+    .replace(/Ó/g, '%D3')
+    .replace(/Ô/g, '%D4')
+    .replace(/Õ/g, '%D5')
+    .replace(/Ö/g, '%D6')
+    .replace(/×/g, '%D7')
+    .replace(/Ø/g, '%D8')
+    .replace(/Ù/g, '%D9')
+    .replace(/Ú/g, '%DA')
+    .replace(/Û/g, '%DB')
+    .replace(/Ü/g, '%DC')
+    .replace(/Ý/g, '%DD')
+    .replace(/Þ/g, '%DE')
+    .replace(/ß/g, '%DF')
+    .replace(/à/g, '%E0')
+    .replace(/á/g, '%E1')
+    .replace(/â/g, '%E2')
+    .replace(/ã/g, '%E3')
+    .replace(/ä/g, '%E4')
+    .replace(/å/g, '%E5')
+    .replace(/æ/g, '%E6')
+    .replace(/ç/g, '%E7')
+    .replace(/è/g, '%E8')
+    .replace(/é/g, '%E9')
+    .replace(/ê/g, '%EA')
+    .replace(/ë/g, '%EB')
+    .replace(/ì/g, '%EC')
+    .replace(/í/g, '%ED')
+    .replace(/î/g, '%EE')
+    .replace(/ï/g, '%EF')
+    .replace(/ð/g, '%F0')
+    .replace(/ñ/g, '%F1')
+    .replace(/ò/g, '%F2')
+    .replace(/ó/g, '%F3')
+    .replace(/ô/g, '%F4')
+    .replace(/õ/g, '%F5')
+    .replace(/ö/g, '%F6')
+    .replace(/÷/g, '%F7')
+    .replace(/ø/g, '%F8')
+    .replace(/ù/g, '%F9')
+    .replace(/ú/g, '%FA')
+    .replace(/û/g, '%FB')
+    .replace(/ü/g, '%FC')
+    .replace(/ý/g, '%FD')
+    .replace(/þ/g, '%FE')
+    .replace(/ÿ/g, '%FF')
+;
+}
+
+      function jsSubmit(XForm, XInep) {
+
+          var obj = document.CLI_form;
+          if (XForm == "Lista") {
+              obj.action = "LsArtigo.asp";
+          }
+          if (XForm == "Sair") {
+              obj.user.value  = "";
+              obj.pass.value  = "";
+              obj.xparm.value = "";
+              obj.action = "index.asp";
+          }
+          obj.submit();    
+      }
+
+      function Sair() {
+alert(device.name);
+alert('a');
+        if (navigator.app) {
+alert('b');
+            navigator.app.exitApp();
+        }
+        else if (navigator.device) {
+alert('c');
+            navigator.device.exitApp();
+        }
+        else  {
+alert('d');
+            device.exitApp();
+alert('e');
+        }
+      }
+
+    </SCRIPT>
+
+  </head>
+
+<!-- style="background-image: url('./img/FGV-fundo2.jpg');" -->
+  <body role="document"  onload="Entrada();">
+
+
+    <div class="container theme-showcase" role="main" style="margin-top:5px;">
+
+          <div class="panel panel-default">
+            <div class="panel-heading" style='color:white; background-image: linear-gradient(#052142, #052142);'>              
+              <CENTER><h1 class="panel-title" style="font-size:20px;">
+                <B>Pesquisa Sobre Clima Escolar - ALUNOS</B>
+              </h1>
+            </div>
+<CENTER>
+
+          <form name="CLI_form" method="post" id="CLI_form" action="">
+              <input name="user"  type="hidden" value="123">
+              <input name="pass"  type="hidden" value="123>">
+              <input name="xparm" type="hidden" value="123">
+
+<div id="DivPerg">
+</div>
+
+          </form>
+
+
+
+          </div>
+
+    </div> <!-- /container -->
+
+<BR><BR><BR><BR>
+<nav id="DivFoot" class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" style="height:80px;">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand" style="font-size:13px;">Realização:</span>
+      <a class="navbar-brand" href="http:\\www.opesociais.com.br" data-toggle="tooltip" data-placement="bottom" title="www.opesociais.com.br"><IMG SRC="./img/unicamp.png"  alt="Unicamp" height="50"></IMG></A>
+      <a class="navbar-brand" href="http:\\www.opesociais.com.br" data-toggle="tooltip" data-placement="bottom" title="www.opesociais.com.br"><IMG SRC="./img/unesp.png"  alt="Unesp" height="30"></IMG></A>
+      <a class="navbar-brand" href="http:\\www.opesociais.com.br" data-toggle="tooltip" data-placement="bottom" title="www.opesociais.com.br"><IMG SRC="./img/insper-pos.png"  alt="Insper" height="30"></IMG></A>
+      <a class="navbar-brand" href="http:\\www.opesociais.com.br" data-toggle="tooltip" data-placement="bottom" title="www.opesociais.com.br"><IMG SRC="./img/logo.png"  alt="Unicamp" height="40"></IMG></A>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-right" id="collapse1">
+      <div class="btn-group" role="group" aria-label="asd1">
+        <button id='btAnt' type='button' class='btn btn-primary navbar-btn' onclick='monta_perg(PergAtual-1, "<");'>Anterior</button>
+        <button id='btPrx' type='button' class='btn btn-primary navbar-btn' onclick='monta_perg(PergAtual+1, ">");' disabled >Pr&oacute;ximo</button>
+      </div>
+      <div class="btn-group" role="group" aria-label="asd2">
+        <button id='btEnc' type='button' class='btn btn-primary navbar-btn' onclick='Sair();' style='display:none;'>Encerrar</button>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+</div>
+    <script src="./js/cordova.js"></script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/docs.min.js"></script>
+    <script src="./js/bootstrap-tooltip.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>
+
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+
+
+  </body>
+</html>
+
+<!--
+https://bootstrap-datepicker.readthedocs.org/en/latest/
+
+
+-->
+
+
